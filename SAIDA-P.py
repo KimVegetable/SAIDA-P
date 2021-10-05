@@ -10,6 +10,7 @@ class MainDialog(QDialog):
         uic.loadUi(test_ui, self)
 
         self.pushButton.clicked.connect(self.Button_click)
+        
 
     def Button_click(self):
         file_names = QFileDialog.getOpenFileNames(self)
