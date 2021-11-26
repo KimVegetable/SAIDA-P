@@ -3473,13 +3473,14 @@ class Ui_SecondWindow(object):
             if 'Metadata' in output:
                 continue
             output = output.replace('\n', ', ')
+            output = output.replace('-', '')
             out_list.append(output)
 
         result = ""
         for i in out_list:
             result = result + i
 
-        print(result)
+      
             # 0
             # 1
         self.DE_Other_Files_Info_List[a][b][2].setText(file_name[file_name.rfind(".") + 1:])
