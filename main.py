@@ -1,3 +1,7 @@
+import sys
+from PyQt5.uic import loadUi
+
+
 import datetime
 import hashlib
 import json
@@ -9,7 +13,7 @@ import subprocess
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QFont, QFontDatabase
-from PyQt5.QtWidgets import QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QDialog, QApplication, QTabWidget, QWidget, QFileDialog, QMessageBox
 
 class Ui_SecondWindow(object):
     def __init__(self, file_path, mode):
@@ -1863,6 +1867,9 @@ class Ui_SecondWindow(object):
         self.AI_other_files_file_browse__enterButton_1.clicked.connect(
             lambda: self.AI_other_files_file_browse__enterButton_1_Calculate(0))
 
+        # Log +버튼
+        self.Log__addButton.clicked.connect(self.Log__addButton_AddTab)
+
         ##Export버튼 누르면 json파일로 변환
         self.ExportButton.clicked.connect(self.ExportButton_exporttojsonfile)
 
@@ -2161,6 +2168,8 @@ class Ui_SecondWindow(object):
 
                     else:
                         print("11")
+
+
 
     def ExportButton_exporttojsonfile(self):
         print("ExportButton_exporttojsonfile")
@@ -2651,6 +2660,10 @@ class Ui_SecondWindow(object):
 
 
                 self.AI_List[a][8].setText(str(chiwon))  # 메타데이터
+
+    def Log__addButton_AddTab(self):
+        print("dfsa")
+        self.tabWidget_2.addTab(QWidget(), "New Tab")
 
     def retranslateUi(self, SecondWindow):
         _translate = QtCore.QCoreApplication.translate
