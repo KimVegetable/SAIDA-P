@@ -1866,6 +1866,302 @@ class Ui_SecondWindow(object):
         ##Export버튼 누르면 json파일로 변환
         self.ExportButton.clicked.connect(self.ExportButton_exporttojsonfile)
 
+        # load 처리
+        if self.mode == 'load':
+            with open(self.file_path, 'r', encoding="utf-8") as f:
+                data = json.load(f)
+
+                # Case Info
+                case_management_id = data['Digital Evidence Package']['Case Info']['case_management_id']
+                agency_case_no = data['Digital Evidence Package']['Case Info']['agency_case_no.']
+                agency_organization_code = data['Digital Evidence Package']['Case Info']['agency_organization_code']
+                agency_organization_name = data['Digital Evidence Package']['Case Info']['agency_organization_name']
+                agency_organization_party_name = data['Digital Evidence Package']['Case Info']['agency_organization_party_name']
+                contents_of_request = data['Digital Evidence Package']['Case Info']['contents_of_request']
+                case_summary = data['Digital Evidence Package']['Case Info']['case_summary']
+                case_description = data['Digital Evidence Package']['Case Info']['case_description']
+                case_datetime = data['Digital Evidence Package']['Case Info']['case_datetime']
+                ordering_datetime = data['Digital Evidence Package']['Case Info']['ordering_datetime']
+
+                # Case Info
+                self.case_management_id__lineEdit_2.setText(case_management_id)
+                self.agency_case_no__lineEdit.setText(agency_case_no)
+                self.agency_organization_code__lineEdit.setText(agency_organization_code)
+                self.agency_organization_name__lineEdit.setText(agency_organization_name)
+                self.agency_organization_party_name__lineEdit.setText(agency_organization_party_name)
+
+                self.contents_of_request__lineEdit.setText(contents_of_request)
+                self.case_summary__lineEdit.setText(case_summary)
+                self.case_description__lineEdit.setText(case_description)
+                self.case_datetime__lineEdit.setText(case_datetime)
+                self.ordering_datetime__lineEdit.setText(ordering_datetime)
+
+                ##############Digital Evidence 전체 부분###### Vessel Info+ Marines Electronics
+                len(data['Digital Evidence Package']['Digital Evidences'])
+
+                for i in range(0, len(data['Digital Evidence Package']['Digital Evidences'])):
+
+                    if i == 0:
+
+
+                        vessel_management_id = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'vessel_management_id']
+                        vessel_name = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'vessel_name']
+                        vessel_MMSI = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'vessel_MMSI']
+                        vessel_callsign = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'vessel_callsign']
+                        vessel_IMO = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'vessel_IMO']
+                        vessel_MRN = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'vessel_MRN']
+                        vessel_tonnage = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'vessel_tonnage']
+                        vessel_length = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'vessel_length']
+                        total_number_of_equipment_with_track = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info'][
+                            'total_number_of_equipment_with_track']
+                        vessel_type = data['Digital Evidence Package']['Digital Evidences'][i]['Vessel Info']['vessel_type']
+
+
+                        self.DE_Vessel_Info_vessel_management_id__lineEdit_1.setText(vessel_management_id)
+                        self.DE_Vessel_Info_vessel_name__lineEdit_1.setText(vessel_name)
+                        self.DE_Vessel_Info_vessel_MMSI__lineEdit_1.setText(vessel_MMSI)
+                        self.DE_Vessel_Info_vessel_callsign__lineEdit_1.setText(vessel_callsign)
+                        self.DE_Vessel_Info_vessel_IMO__lineEdit_1.setText(vessel_IMO)
+                        self.DE_Vessel_Info_vessel_MRN__lineEdit_1.setText(vessel_MRN)
+                        self.DE_Vessel_Info_vessel_tonnage__lineEdit_1.setText(vessel_tonnage)
+                        self.DE_Vessel_Info_vessel_length__lineEdit_1.setText(vessel_length)
+                        self.DE_Vessel_Info_vessel_total_number_of_equipmentwith_track__lineEdit_1.setText(
+                            total_number_of_equipment_with_track)
+                        self.DE_Vessel_Type__lineEdit_1.setText(vessel_type)
+
+                        device_management_id = \
+                        data['Digital Evidence Package']['Digital Evidences'][i]['Marine Electronics Info'][
+                            'device_management_id']
+                        device_type = \
+                        data['Digital Evidence Package']['Digital Evidences'][i]['Marine Electronics Info'][
+                            'device_type']
+                        device_manufacturer = \
+                        data['Digital Evidence Package']['Digital Evidences'][i]['Marine Electronics Info'][
+                            'device_manufacturer']
+                        device_model_name = \
+                        data['Digital Evidence Package']['Digital Evidences'][i]['Marine Electronics Info'][
+                            'device_model_name']
+                        device_model_serial_number = \
+                        data['Digital Evidence Package']['Digital Evidences'][i]['Marine Electronics Info'][
+                            'device_model_serial_number']
+                        device_os_firmware = \
+                        data['Digital Evidence Package']['Digital Evidences'][i]['Marine Electronics Info'][
+                            'device_os_firmware']
+                        device_descripton = \
+                        data['Digital Evidence Package']['Digital Evidences'][i]['Marine Electronics Info'][
+                            'device_description']
+
+                        self.DE_Marines_Electronics_Info_device_management_id__lineEdit_1.setText(device_management_id)
+                        self.DE_Marines_Electronics_Info_device_type__lineEdit_1.setText(device_type)
+                        self.DE_Marines_Electronics_Info_device_manufacturer__lineEdit_1.setText(device_manufacturer)
+                        self.DE_Marines_Electronics_Info_device_model_name__lineEdit_1.setText(device_model_name)
+                        self.DE_Marines_Electronics_Info_device_model_serial_number__lineEdit_1.setText(
+                            device_model_serial_number)
+                        self.DE_Marines_Electronics_Info_device_os_firmware__lineEdit_1.setText(device_os_firmware)
+                        self.DE_Marines_Electronics_Info_device_description__lineEdit_1.setText(device_descripton)
+
+                    #############[Digital Evidence][Other Files]#######
+                    len(data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'])
+
+                    for j in range(0, len(data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'])):
+
+                        if j == 0:
+
+                            id = data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'][j]['other_files_id']
+                            type = data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'][j]['other_files_type']
+                            file_size = data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'][j]['other_files_size']
+                            file_path = data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'][j]['other_files_path']
+                            file_hash_type = data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'][j]['other_files_hash_type']
+                            file_hash_value = data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'][j]['other_files_hash_value']
+                            file_description = data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'][j]['other_files_file_description']
+                            file_metadata = data['Digital Evidence Package']['Digital Evidences'][i]['Other Files'][j]['other_files_file_metadata']
+
+                            self.DE_other_files_id__lineEdit_1.setText(id)
+                            self.DE_other_files_type__lineEdit_1.setText(type)
+                            self.DE_other_files_file_size__lineEdit_1.setText(file_size)
+                            self.DE_other_files_file_path__lineEdit_1.setText(file_path)
+                            self.DE_other_files_file_hash_type__lineEdit_1.setText(file_hash_type)
+                            self.DE_other_files_file_hash_value__lineEdit_1.setText(file_hash_value)
+                            self.DE_other_files_file_description__lineEdit_1.setText(file_description)
+                            self.DE_other_files_file_metadata__lineEdit_1.setText(file_metadata)
+
+                        else:
+                            print("dsf")
+
+
+
+
+                #########Analysis Info 부분 ###############
+                len(data['Digital Evidence Package']['Analysis Info']['Reports'])
+                for i in range(0, len(data['Digital Evidence Package']['Analysis Info']['Reports'])):
+
+                    if i == 0:
+                        id = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['id']
+                        type = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['type']
+                        subtype = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['subtype']
+                        mgmt_id = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['mgmt_id']
+                        submission_agency = data['Digital Evidence Package']['Analysis Info']['Reports'][i][
+                            'submission_agency']
+                        report_creation_datetime = data['Digital Evidence Package']['Analysis Info']['Reports'][i][
+                            'report_creation_datetime']
+                        division_name_of_report_maker = data['Digital Evidence Package']['Analysis Info']['Reports'][i][
+                            'division_name_of_report_maker']
+                        team_name_of_report_maker = data['Digital Evidence Package']['Analysis Info']['Reports'][i][
+                            'team_name_of_report_maker']
+                        file_name = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['file_name']
+                        file_size = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['file_size']
+                        file_path = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['file_path']
+                        file_creation_datetime = data['Digital Evidence Package']['Analysis Info']['Reports'][i][
+                            'file_creation_datetime']
+                        file_description = data['Digital Evidence Package']['Analysis Info']['Reports'][i][
+                            'file_description']
+                        hash_type = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['hash_type']
+                        hash_value = data['Digital Evidence Package']['Analysis Info']['Reports'][i]['hash_value']
+
+                        self.AI_Reports_id__lineEdit_1.setText(id)
+                        self.AI_Reports_type__lineEdit_1.setText(type)
+                        self.AI_Reports_subtype__lineEdit_1.setText(subtype)
+                        self.AI_Reports_mgmt_id__lineEdit_1.setText(mgmt_id)
+                        self.AI_Reports_submission_agency__lineEdit_1.setText(submission_agency)
+                        self.AI_Reports_reprot_creation_datetime__lineEdit_1.setText(report_creation_datetime)
+                        self.AI_Reports_division_name_of_report_maker__lineEdit_1.setText(division_name_of_report_maker)
+                        self.AI_Reports_team_name_of_report_maker__lineEdit_1.setText(team_name_of_report_maker)
+                        self.AI_Reports_file_name__lineEdit_1.setText(file_name)
+                        self.AI_Reports_file_size__lineEdit_1.setText(file_size)
+                        self.AI_Reports_file_path__lineEdit_1.setText(file_path)
+                        self.AI_Reports_file_creation_datetime__lineEdit_1.setText(file_creation_datetime)
+                        self.AI_Reports_file_description__lineEdit_1.setText(file_description)
+                        self.AI_Reports_file_hash_type__lineEdit_1.setText(hash_type)
+                        self.AI_Reports_file_hash_value__lineEdit_1.setText(hash_value)
+
+                ############## Equipment Traces 부분 ########
+                len(data['Digital Evidence Package']['Analysis Info']['Equipment Traces'])
+                for i in range(0, len(data['Digital Evidence Package']['Analysis Info']['Equipment Traces'])):
+
+                    if i == 0:
+                        id = data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i]['id']
+                        type = data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i]['type']
+                        description = data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'description']
+                        mgmt_id = data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'mgmt_id']
+                        vessel_id = data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'vessel_id']
+                        evidence_id = data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'evidence_id']
+                        power_on_time = \
+                        data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'power_on_time']
+                        track_extraction_description = \
+                        data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'track_extraction_description']
+                        system_info_description = \
+                        data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'system_info_description']
+                        operation_status = \
+                        data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'operation_status']
+                        power_off_time = \
+                        data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'power_off_time']
+                        track_recording_period = \
+                        data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'track_recording_period']
+                        track_deletion_trace = \
+                        data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'track_deletion_trace']
+                        trace_notes = data['Digital Evidence Package']['Analysis Info']['Equipment Traces'][i][
+                            'trace_notes']
+
+                        self.AI_EquipmentTraces_id__lineEdit_1.setText(id)
+                        self.AI_EquipmentTraces_type__lineEdit_1.setText(type)
+                        self.AI_EquipmentTraces_description__lineEdit_1.setText(type)
+                        self.AI_EquipmentTraces_mgmt_id__lineEdit_1.setText(mgmt_id)
+                        self.AI_EquipmentTraces_vessel_id__lineEdit_1.setText(vessel_id)
+                        self.AI_EquipmentTraces_evidence_id__lineEdit_1.setText(evidence_id)
+                        self.AI_EquipmentTraces_user_trace_info_system_power_on_time__lineEdit_1.setText(
+                            power_on_time)
+                        self.AI_EquipmentTraces_user_trace_info_track_extractopm_description__lineEdit_1.setText(
+                            track_extraction_description)
+                        self.AI_EquipmentTraces_user_trace_info_system_description__lineEdit_1.setText(
+                            system_info_description)
+                        self.AI_EquipmentTraces_user_trace_info_system_operation_status__lineEdit_1.setText(
+                            system_info_description)
+                        self.AI_EquipmentTraces_user_trace_info_system_power_off_time__lineEdit_1.setText(
+                            power_off_time)
+                        self.AI_EquipmentTraces_user_trace_info_track_recording_period__lineEdit_1.setText(
+                            track_recording_period)
+                        self.AI_EquipmentTraces_user_trace_info_track_deletion_trace__lineEdit_1.setText(
+                            track_deletion_trace)
+                        self.AI_EquipmentTraces_user_trace_info_user_trace_notes__lineEdit_1.setText(
+                            trace_notes)
+
+
+
+
+
+
+
+                len(data['Digital Evidence Package']['Analysis Info']['Other Files'])
+
+                for i in range(0, len(data['Digital Evidence Package']['Analysis Info']['Other Files'])):
+
+                    if i == 0:
+                        id = data['Digital Evidence Package']['Analysis Info']['Other Files'][i]['id']
+                        type = data['Digital Evidence Package']['Analysis Info']['Other Files'][i]['type']
+                        file_size = data['Digital Evidence Package']['Analysis Info']['Other Files'][i]['file_size']
+                        file_path = data['Digital Evidence Package']['Analysis Info']['Other Files'][i]['file_path']
+                        file_hash_type = data['Digital Evidence Package']['Analysis Info']['Other Files'][i]['file_hash_type']
+                        file_hash_value = data['Digital Evidence Package']['Analysis Info']['Other Files'][i]['file_hash_value']
+                        file_description = data['Digital Evidence Package']['Analysis Info']['Other Files'][i]['file_description']
+                        file_metadata = data['Digital Evidence Package']['Analysis Info']['Other Files'][i]['file_metadata']
+
+                        self.AI_other_files_id__lineEdit_1.setText(id)
+                        self.AI_other_files_type__lineEdit_1.setText(type)
+                        self.AI_other_files_file_size__lineEdit_1.setText(file_size)
+                        self.AI_other_files_file_path__lineEdit_1.setText(file_path)
+                        self.AI_other_files_file_hash_type__lineEdit_1.setText(file_hash_type)
+                        self.AI_other_files_file_hash_value__lineEdit_1.setText(file_hash_value)
+                        self.AI_other_files_file_description__lineEdit_1.setText(file_description)
+                        self.AI_other_files_file_metadata__lineEdit_1.setText(file_metadata)
+
+                #########Log 부분########
+                len(data['Log'])
+
+                for i in range(0, len(data['Log'])):
+
+                    if i == 0:
+                        digital_evidence_package_management_id = data['Log'][i][
+                            'digital_evidence_package_management_id']
+                        log_datetime = data['Log'][i]['log_datetime']  # datetime으로 고쳤음
+                        log_type = data['Log'][i]['log_type']
+                        log_description = data['Log'][i]['log_description']
+                        devision_name_of_logger = data['Log'][i]['devision_name_of_logger']
+                        team_name_of_logger = data['Log'][i]['team_name_of_logger']
+                        rank_of_logger = data['Log'][i]['rank_of_logger']
+                        name_of_logger = data['Log'][i]['name_of_logger']
+
+                        self.Log_digital_evidence_package_management_id__lineEdit_1.setText(
+                            digital_evidence_package_management_id)
+                        self.Log_log_datetime__lineEdit_1.setText(log_datetime)
+                        self.Log_log_type__lineEdit_1.setText(log_type)
+                        self.Log_log_description__lineEdit_1.setText(log_description)
+                        self.Log_devision_name_of_logger__lineEdit_1.setText(devision_name_of_logger)
+                        self.Log_team_name_of_logger__lineEdit_1.setText(team_name_of_logger)
+                        self.Log_rank_of_logger__lineEdit_1.setText(rank_of_logger)
+                        self.Log_name_of_logger__lineEdit_1.setText(name_of_logger)
+
+                    else:
+                        print("11")
+
     def ExportButton_exporttojsonfile(self):
         print("ExportButton_exporttojsonfile")
 
@@ -2523,7 +2819,7 @@ class Ui_SecondWindow(object):
         self.Log_name_of_logger__label_1.setText(_translate("SecondWindow", "이력 분석자명:"))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab), _translate("SecondWindow", "Tab 1"))
         self.Log__label.setText(_translate("SecondWindow", "디지털 증거 패키지 로그"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Log_tab), _translate("SecondWindow", "Digital Evidence Package Log"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Log_tab), _translate("SecondWindow", "Log"))
         self.ExportButton.setText(_translate("SecondWindow", "Export"))
 
 
