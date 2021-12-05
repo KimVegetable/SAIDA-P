@@ -1756,18 +1756,21 @@ class Ui_SecondWindow(object):
         tmp_list.append(self.DE_Acquisition_Info_acquisition_tool_version__lineEdit_1) #47
         tmp_list.append(self.DE_Authentication_Person_Party_Name__lineEdit_1) #48
 
+
         # Acquisition 추가
-        tmp_list.append(self.DE_Acquisition_Info_DEF_serial_no__lineEdit_1)  #
-        tmp_list.append(self.DE_Acquisition_Info_DEF_management_id__lineEdit_1)
-        tmp_list.append(self.DE_Acquisition_Info_DEF_digital_evidence_type__lineEdit_1)  #
-        tmp_list.append(self.DE_Acquisition_Info_DEF_evidences_gathering_type__lineEdit_1)
-        tmp_list.append(self.DE_Acquisition_Info_DEF_gather_no__lineEdit_1)  #
-        tmp_list.append(self.DE_Acquisition_Info_DEF_browse__lineEdit_1)
-        tmp_list.append(self.DE_Acquisition_Info_DEF_digital_evidence_file_name__lineEdit_1)  #
-        tmp_list.append(self.DE_Acquisition_Info_DEF_digital_evidence_file_path__lineEdit_1)
-        tmp_list.append(self.DE_Acquisition_Info_DEF_hash_type__lineEdit_1)
-        tmp_list.append(self.DE_Acquisition_Info_DEF_hash_value__lineEdit_1)
-        tmp_list.append(self.DE_Acquisition_Info_DEF_sector_size__lineEdit_1)  #
+        tmp_list.append(self.DE_Acquisition_Info_DEF_serial_no__lineEdit_1)  #49
+        tmp_list.append(self.DE_Acquisition_Info_DEF_management_id__lineEdit_1) #50
+        tmp_list.append(self.DE_Acquisition_Info_DEF_digital_evidence_type__lineEdit_1)  #51
+        tmp_list.append(self.DE_Acquisition_Info_DEF_evidences_gathering_type__lineEdit_1) #52
+        tmp_list.append(self.DE_Acquisition_Info_DEF_gather_no__lineEdit_1)  #53
+        tmp_list.append(self.DE_Acquisition_Info_DEF_browse__lineEdit_1) #54
+        tmp_list.append(self.DE_Acquisition_Info_DEF_digital_evidence_file_name__lineEdit_1)  #55
+        tmp_list.append(self.DE_Acquisition_Info_DEF_digital_evidence_file_path__lineEdit_1) #56
+        tmp_list.append(self.DE_Acquisition_Info_DEF_hash_type__lineEdit_1) #57
+        tmp_list.append(self.DE_Acquisition_Info_DEF_hash_value__lineEdit_1) #58
+        tmp_list.append(self.DE_Acquisition_Info_DEF_sector_size__lineEdit_1)  #59
+        tmp_list.append(self.DE_Acquisition_Info_DEF_file_size__lineEdit_1) #60
+        tmp_list.append(self.DE_Acquisition_Info_DEF__metadata__lineEdit_1) #61
 
         self.DE_AddAll_List.append(tmp_list)
 
@@ -2082,16 +2085,14 @@ class Ui_SecondWindow(object):
 
 
                         ##################Gather Info _ Media File 부분####################
-                        len(data['Digital Evidence Package']['Digital Evidences'][i]['Gather Info'][
-                                'Gather Info Media File'])
+                        len(data['Digital Evidence Package']['Digital Evidences'][i]['Gather Info']['Gather Info Media File'])
 
                         for j in range(0, len(data['Digital Evidence Package']['Digital Evidences'][i]['Gather Info'][
                                                   'Gather Info Media File'])):
 
                             if j == 0:
                                 gather_media_type = \
-                                    data['Digital Evidence Package']['Digital Evidences'][i]['Gather Info'][
-                                        'Gather Info Media File'][j]['gather_media_type']
+                                    data['Digital Evidence Package']['Digital Evidences'][i]['Gather Info']['Gather Info Media File'][j]['gather_media_type']
                                 gather_hash_type = \
                                     data['Digital Evidence Package']['Digital Evidences'][i]['Gather Info'][
                                         'Gather Info Media File'][j]['gather_hash_type']
@@ -2147,6 +2148,75 @@ class Ui_SecondWindow(object):
 
                         else:
                             print("dsf")
+                    #############[Digital Evidence][Authentication Info]
+                    len(data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'])
+                    for j in range (0, len(data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'])):
+
+                        if j == 0:
+
+                            authentication_id = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j][
+                                'authentication_id']
+                            authentication_person_name = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j][
+                                'authentication_person_name']
+                            authentication_date_time = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j][
+                                'authentication_date_time']
+                            authentication_location = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['authentication_location']
+                            authentication_tool = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['authentication_tool']
+
+                            authentication_tool_version = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['authentication_tool_version']
+
+                            authentication_person_party_name = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['authentication_person_party_name']
+
+                            self.DE_Authentication_ID__lineEdit_1.setText(authentication_id)
+                            self.DE_Acquisition_Info_acquisition_person_name__lineEdit_1.setText(authentication_person_name)
+                            self.DE_Acquisition_Info_acquisition_date_time__lineEdit_1.setText(authentication_date_time)
+                            self.DE_Acquisition_Info_acquisition_location__lineEdit_1.setText(authentication_location)
+                            self.DE_Acquisition_Info_acquisition_tool__lineEdit_1.setText(authentication_tool)
+                            self.DE_Acquisition_Info_acquisition_tool_version__lineEdit_1.setText(authentication_tool_version)
+                            self.DE_Authentication_Person_Party_Name__lineEdit_1.setText(authentication_person_party_name)
+
+                        else:
+                            print("fg")
+
+                        ##################Authentication Info _ DEF 부분####################
+                        len(data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'])
+
+                        for k in range(0, len(data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'])):
+
+                            if k == 0:
+
+                                serial_no = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['serial_no']
+                                management_id = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['management_id']
+                                digital_evidence_type = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['digital_evidence_type']
+                                evidences_gathering_type = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['evidences_gathering_type']
+                                gather_no = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['gather_no']
+                                DEF_file_name = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['file_name']
+                                DEF_file_path = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['file_path']
+                                hash_type = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['hash_type']
+                                hash_value = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['hash_value']
+                                sector_size = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['sector_size']
+                                DEF_file_size = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['file_size']
+                                metadata = data['Digital Evidence Package']['Digital Evidences'][i]['Authentication Info'][j]['Digital Evidence Files'][k]['metadata']
+
+
+                                self.DE_Acquisition_Info_DEF_serial_no__lineEdit_1.setText(serial_no)
+                                self.DE_Acquisition_Info_DEF_management_id__lineEdit_1.setText(management_id)
+                                self.DE_Acquisition_Info_DEF_digital_evidence_type__lineEdit_1.setText(digital_evidence_type)
+                                self.DE_Acquisition_Info_DEF_evidences_gathering_type__lineEdit_1.setText(evidences_gathering_type)
+                                self.DE_Acquisition_Info_DEF_gather_no__lineEdit_1.setText(gather_no)
+                                self.DE_Acquisition_Info_DEF_digital_evidence_file_name__lineEdit_1.setText(DEF_file_name)
+                                self.DE_Acquisition_Info_DEF_digital_evidence_file_path__lineEdit_1.setText(DEF_file_path)
+                                self.DE_Acquisition_Info_DEF_hash_type__lineEdit_1.setText(hash_type)
+                                self.DE_Acquisition_Info_DEF_hash_value__lineEdit_1.setText(hash_value)
+                                self.DE_Acquisition_Info_DEF_sector_size__lineEdit_1.setText(sector_size)
+                                self.DE_Acquisition_Info_DEF_file_size__lineEdit_1.setText(DEF_file_size)
+                                self.DE_Acquisition_Info_DEF__metadata__lineEdit_1.setText(metadata)
+
+
+
+                            else:
+                                print("dsf")
+
 
                 #########Analysis Info 부분 ###############
                 len(data['Digital Evidence Package']['Analysis Info']['Reports'])
@@ -2388,11 +2458,14 @@ class Ui_SecondWindow(object):
             # ### Acquisition #1
             tmp_list = []
             for list in self.DE_AddAll_List:
-                tmp_list.append({'authentication_id': list[38].text(),
-                  'authentication_person_name': list[39].text(),
-                'authentication_date_time': list[40].text(),
-                 'authentication_location': list[41].text(),
-               'authentication_tool': list[42].text()})
+                tmp_list.append({'authentication_id': list[42].text(),
+                  'authentication_person_name': list[43].text(),
+                'authentication_date_time': list[44].text(),
+                 'authentication_location': list[45].text(),
+               'authentication_tool': list[46].text(),
+                                 'authentication_tool_version': list[47].text(),
+                                 'authentication_person_party_name': list[48].text()
+                                 })
 
             tmp_dict['Authentication Info'] = tmp_list
 
@@ -2400,28 +2473,25 @@ class Ui_SecondWindow(object):
             #Acquisition #2
             tmp_list = []
             for acquisition_list in self.DE_AddAll_List:
-                tmp_list.append({'authentication_id': acquisition_list[38].text(),
-                         'authentication_person_name': acquisition_list[39].text(),
-                     'authentication_date_time': acquisition_list[40].text(),
-                     'authentication_location': acquisition_list[41].text(),
-                     'authentication_tool': acquisition_list[42].text()})
+                tmp_list.append({'serial_no': acquisition_list[49].text(),
+                         'management_id': acquisition_list[50].text(),
+                     'digital_evidence_type': acquisition_list[51].text(),
+                     'evidences_gathering_type': acquisition_list[52].text(),
+                     'gather_no': acquisition_list[53].text(),
+
+                     'file_name': acquisition_list[55].text(),
+
+                     'file_path': acquisition_list[56].text() ,
+                     'hash_type': acquisition_list[57].text(),
+                     'hash_value': acquisition_list[58].text(),
+                     'sector_size': acquisition_list[59].text(),
+                    'file_size': acquisition_list[60].text(),
+                    'metadata': acquisition_list[61].text()
+                        })
 
             for q in q_number:
-                tmp_dict['Authentication Info'][q]['DEF'] = tmp_list
+                tmp_dict['Authentication Info'][q]['Digital Evidence Files'] = tmp_list
 
-
-
-
-
-            # for second_list in self.DE_AddAll_List:
-            #     tmp_list.append({'serial_no': second_list[43].text(), 'management_id': second_list[44].text(),
-            #                      'digital_evidence_type': second_list[45].text(),
-            #                      'evidences_gathering_type': second_list[46].text(),
-            #                      'gather_no': second_list[47].text(), 'file_name': second_list[49].text(),
-            #                      'file_path': second_list[50].text(), 'hash_type': second_list[51].text(),
-            #                      'hash_value': second_list[52].text(), 'sector_size': second_list[53].text()})
-
-            # tmp_dict['Authentication Info']['Digital Evidence Files'] = tmp_list
 
             list_DE.append(tmp_dict)
 
@@ -3135,3 +3205,4 @@ if __name__ == "__main__":
     SecondWindow.show()
     sys.exit(app.exec_())
 
+#KS로 변경된 상태에서 Export와 Load가능
