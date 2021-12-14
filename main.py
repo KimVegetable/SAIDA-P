@@ -4,6 +4,7 @@ import datetime
 import hashlib
 import json
 import os, time
+import random
 from PIL import Image
 from PIL.ExifTags import TAGS
 from shutil import copyfile
@@ -1569,6 +1570,7 @@ class Ui_SecondWindow(object):
         self.Log_digital_evidence_package_management_id__lineEdit_1.setObjectName("Log_digital_evidence_package_management_id__lineEdit_1")
         self.Log_digital_evidence_package_management_id___horizontalLayout_1.addWidget(self.Log_digital_evidence_package_management_id__lineEdit_1)
         self.Log__verticalLayout_1.addLayout(self.Log_digital_evidence_package_management_id___horizontalLayout_1)
+
         self.Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1 = QtWidgets.QHBoxLayout()
         self.Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1.setObjectName("Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1")
         self.Log_Digital_Evidence_Pack_History_Start_Date_Time__label_1 = QtWidgets.QLabel(self.scrollAreaWidgetContents_12)
@@ -1577,6 +1579,11 @@ class Ui_SecondWindow(object):
         self.Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents_12)
         self.Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1.setObjectName("Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1")
         self.Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1.addWidget(self.Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1)
+
+        starttime = str(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))))
+
+        self.Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1.setText(str(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))))
+
         self.Log__verticalLayout_1.addLayout(self.Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1)
         self.Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1 = QtWidgets.QHBoxLayout()
         self.Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1.setObjectName("Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1")
@@ -1908,6 +1915,7 @@ class Ui_SecondWindow(object):
         now = datetime.datetime.now()
 
         tmp_list.append(self.Log_digital_evidence_package_management_id__lineEdit_1)
+        tmp_list.append(self.Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1)
         tmp_list.append(now)
         tmp_list.append(self.Log_log_type__lineEdit_1)
         tmp_list.append(self.Log_log_description__lineEdit_1)
@@ -1915,6 +1923,7 @@ class Ui_SecondWindow(object):
         tmp_list.append(self.Log_team_name_of_logger__lineEdit_1)
         tmp_list.append(self.Log_rank_of_logger__lineEdit_1)
         tmp_list.append(self.Log_name_of_logger__lineEdit_1)
+
         self.Log_List.append(tmp_list)
 
         ##DE_Gather_Info Browse버튼 클릭하면 파일 업로드
@@ -2408,7 +2417,7 @@ class Ui_SecondWindow(object):
                     if i == 0:
                         digital_evidence_package_management_id = data['Log'][i][
                             'digital_evidence_package_management_id']
-                        log_datetime = data['Log'][i]['log_datetime']  # datetime으로 고쳤음
+                        log_datetime = data['Log'][i]['log_history_end_date_time']  # datetime으로 고쳤음
                         log_type = data['Log'][i]['log_type']
                         log_description = data['Log'][i]['log_description']
                         devision_name_of_logger = data['Log'][i]['devision_name_of_logger']
@@ -2427,17 +2436,299 @@ class Ui_SecondWindow(object):
                         self.Log_name_of_logger__lineEdit_1.setText(name_of_logger)
 
                     else:
-                        print("11")
+                        self.Log_num += 1
+
+                        tmp_tab = QtWidgets.QWidget()
+                        tmp_tab.setObjectName("tab")
+                        tmp_gridLayout_5 = QtWidgets.QGridLayout(tmp_tab)
+                        tmp_gridLayout_5.setObjectName("gridLayout_5")
+                        tmp_Log__scrollArea = QtWidgets.QScrollArea(tmp_tab)
+                        tmp_Log__scrollArea.setWidgetResizable(True)
+                        tmp_Log__scrollArea.setObjectName("Log__scrollArea")
+                        tmp_scrollAreaWidgetContents_12 = QtWidgets.QWidget()
+                        tmp_scrollAreaWidgetContents_12.setGeometry(QtCore.QRect(0, 0, 1308, 592))
+                        tmp_scrollAreaWidgetContents_12.setObjectName("scrollAreaWidgetContents_12")
+                        tmp_gridLayout_16 = QtWidgets.QGridLayout(tmp_scrollAreaWidgetContents_12)
+                        tmp_gridLayout_16.setObjectName("gridLayout_16")
+                        tmp_Log__verticalLayout_1 = QtWidgets.QVBoxLayout()
+                        tmp_Log__verticalLayout_1.setObjectName("Log__verticalLayout_1")
+                        tmp_Log_digital_evidence_package_management_id___horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_digital_evidence_package_management_id___horizontalLayout_1.setObjectName(
+                            "Log_digital_evidence_package_management_id___horizontalLayout_1")
+                        tmp_Log_digital_evidence_package_management_id__label_1 = QtWidgets.QLabel(
+                            tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_digital_evidence_package_management_id__label_1.setObjectName(
+                            "Log_digital_evidence_package_management_id__label_1")
+                        tmp_Log_digital_evidence_package_management_id___horizontalLayout_1.addWidget(
+                            tmp_Log_digital_evidence_package_management_id__label_1)
+                        tmp_Log_digital_evidence_package_management_id__lineEdit_1 = QtWidgets.QLineEdit(
+                            tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_digital_evidence_package_management_id__lineEdit_1.setObjectName(
+                            "Log_digital_evidence_package_management_id__lineEdit_1")
+                        tmp_Log_digital_evidence_package_management_id___horizontalLayout_1.addWidget(
+                            tmp_Log_digital_evidence_package_management_id__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(
+                            tmp_Log_digital_evidence_package_management_id___horizontalLayout_1)
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1.setObjectName(
+                            "Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1")
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__label_1 = QtWidgets.QLabel(
+                            tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__label_1.setObjectName(
+                            "Log_Digital_Evidence_Pack_History_Start_Date_Time__label_1")
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1.addWidget(
+                            tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__label_1)
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1 = QtWidgets.QLineEdit(
+                            tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1.setObjectName(
+                            "Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1")
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1.addWidget(
+                            tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(
+                            tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__horizontalLayout_1)
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1.setObjectName(
+                            "Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1")
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__label_1 = QtWidgets.QLabel(
+                            tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__label_1.setObjectName(
+                            "Log_Digital_Evidence_Pack_History_End_Date_Time__label_1")
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1.addWidget(
+                            tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__label_1)
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__lineEdit_1 = QtWidgets.QLineEdit(
+                            tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__lineEdit_1.setObjectName(
+                            "Log_Digital_Evidence_Pack_History_End_Date_Time__lineEdit_1")
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1.addWidget(
+                            tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(
+                            tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__horizontalLayout_1)
+                        tmp_Log_log_type__horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_log_type__horizontalLayout_1.setObjectName("Log_log_type__horizontalLayout_1")
+                        tmp_Log_log_type__label_1 = QtWidgets.QLabel(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_log_type__label_1.setObjectName("Log_log_type__label_1")
+                        tmp_Log_log_type__horizontalLayout_1.addWidget(tmp_Log_log_type__label_1)
+                        tmp_Log_log_type__lineEdit_1 = QtWidgets.QLineEdit(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_log_type__lineEdit_1.setObjectName("Log_log_type__lineEdit_1")
+                        tmp_Log_log_type__horizontalLayout_1.addWidget(tmp_Log_log_type__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(tmp_Log_log_type__horizontalLayout_1)
+                        tmp_Log_log_description__horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_log_description__horizontalLayout_1.setObjectName(
+                            "Log_log_description__horizontalLayout_1")
+                        tmp_Log_log_description__label_1 = QtWidgets.QLabel(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_log_description__label_1.setObjectName("Log_log_description__label_1")
+                        tmp_Log_log_description__horizontalLayout_1.addWidget(tmp_Log_log_description__label_1)
+                        tmp_Log_log_description__lineEdit_1 = QtWidgets.QLineEdit(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_log_description__lineEdit_1.setObjectName("Log_log_description__lineEdit_1")
+                        tmp_Log_log_description__horizontalLayout_1.addWidget(tmp_Log_log_description__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(tmp_Log_log_description__horizontalLayout_1)
+                        tmp_Log_devision_name_of_logger__horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_devision_name_of_logger__horizontalLayout_1.setObjectName(
+                            "Log_devision_name_of_logger__horizontalLayout_1")
+                        tmp_Log_devision_name_of_logger__label_1 = QtWidgets.QLabel(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_devision_name_of_logger__label_1.setObjectName("Log_devision_name_of_logger__label_1")
+                        tmp_Log_devision_name_of_logger__horizontalLayout_1.addWidget(
+                            tmp_Log_devision_name_of_logger__label_1)
+                        tmp_Log_devision_name_of_logger__lineEdit_1 = QtWidgets.QLineEdit(
+                            tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_devision_name_of_logger__lineEdit_1.setObjectName(
+                            "Log_devision_name_of_logger__lineEdit_1")
+                        tmp_Log_devision_name_of_logger__horizontalLayout_1.addWidget(
+                            tmp_Log_devision_name_of_logger__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(tmp_Log_devision_name_of_logger__horizontalLayout_1)
+                        tmp_Log_team_name_of_logger__horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_team_name_of_logger__horizontalLayout_1.setObjectName(
+                            "Log_team_name_of_logger__horizontalLayout_1")
+                        tmp_Log_team_name_of_logger__label_1 = QtWidgets.QLabel(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_team_name_of_logger__label_1.setObjectName("Log_team_name_of_logger__label_1")
+                        tmp_Log_team_name_of_logger__horizontalLayout_1.addWidget(tmp_Log_team_name_of_logger__label_1)
+                        tmp_Log_team_name_of_logger__lineEdit_1 = QtWidgets.QLineEdit(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_team_name_of_logger__lineEdit_1.setObjectName("Log_team_name_of_logger__lineEdit_1")
+                        tmp_Log_team_name_of_logger__horizontalLayout_1.addWidget(
+                            tmp_Log_team_name_of_logger__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(tmp_Log_team_name_of_logger__horizontalLayout_1)
+                        tmp_Log_rank_of_logger__horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_rank_of_logger__horizontalLayout_1.setObjectName(
+                            "Log_rank_of_logger__horizontalLayout_1")
+                        tmp_Log_rank_of_logger__label_1 = QtWidgets.QLabel(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_rank_of_logger__label_1.setObjectName("Log_rank_of_logger__label_1")
+                        tmp_Log_rank_of_logger__horizontalLayout_1.addWidget(tmp_Log_rank_of_logger__label_1)
+                        tmp_Log_rank_of_logger__lineEdit_1 = QtWidgets.QLineEdit(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_rank_of_logger__lineEdit_1.setObjectName("Log_rank_of_logger__lineEdit_1")
+                        tmp_Log_rank_of_logger__horizontalLayout_1.addWidget(tmp_Log_rank_of_logger__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(tmp_Log_rank_of_logger__horizontalLayout_1)
+                        tmp_Log_name_of_logger__horizontalLayout_1 = QtWidgets.QHBoxLayout()
+                        tmp_Log_name_of_logger__horizontalLayout_1.setObjectName(
+                            "Log_name_of_logger__horizontalLayout_1")
+                        tmp_Log_name_of_logger__label_1 = QtWidgets.QLabel(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_name_of_logger__label_1.setObjectName("Log_name_of_logger__label_1")
+                        tmp_Log_name_of_logger__horizontalLayout_1.addWidget(tmp_Log_name_of_logger__label_1)
+                        tmp_Log_name_of_logger__lineEdit_1 = QtWidgets.QLineEdit(tmp_scrollAreaWidgetContents_12)
+                        tmp_Log_name_of_logger__lineEdit_1.setObjectName("Log_name_of_logger__lineEdit_1")
+                        tmp_Log_name_of_logger__horizontalLayout_1.addWidget(tmp_Log_name_of_logger__lineEdit_1)
+                        tmp_Log__verticalLayout_1.addLayout(tmp_Log_name_of_logger__horizontalLayout_1)
+                        tmp_gridLayout_16.addLayout(tmp_Log__verticalLayout_1, 0, 0, 1, 1)
+                        tmp_Log__scrollArea.setWidget(tmp_scrollAreaWidgetContents_12)
+                        tmp_gridLayout_5.addWidget(tmp_Log__scrollArea, 0, 0, 1, 1)
+                        self.tabWidget_2.addTab(tmp_tab, "Tab " + str(len(self.Log_List) + 1))
+
+                        tmp_list = list()
+                        tmp_list.append(tmp_Log_digital_evidence_package_management_id__lineEdit_1) #0
+                        tmp_list.append(tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1) #1
+                        tmp_list.append(tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__lineEdit_1) #2
+                        tmp_list.append(tmp_Log_log_type__lineEdit_1) #3
+                        tmp_list.append(tmp_Log_log_description__lineEdit_1)
+                        tmp_list.append(tmp_Log_devision_name_of_logger__lineEdit_1)
+                        tmp_list.append(tmp_Log_team_name_of_logger__lineEdit_1)
+                        tmp_list.append(tmp_Log_rank_of_logger__lineEdit_1)
+                        tmp_list.append(tmp_Log_name_of_logger__lineEdit_1)
+                        self.Log_List.append(tmp_list)
+
+                        digital_evidence_package_management_id = data['Log'][i]['digital_evidence_package_management_id']
+                        log_history_start_date_time = data['Log'][i]['log_history_start_date_time']
+                        log_history_end_date_time = data['Log'][i]['log_history_end_date_time']
+                        log_type = data['Log'][i]['log_type']
+                        log_description = data['Log'][i]['log_description']
+                        devision_name_of_logger = data['Log'][i]['devision_name_of_logger']
+                        team_name_of_logger = data['Log'][i]['team_name_of_logger']
+                        rank_of_logger = data['Log'][i]['rank_of_logger']
+                        name_of_logger = data['Log'][i]['name_of_logger']
+
+                        tmp_Log_digital_evidence_package_management_id__lineEdit_1.setText(digital_evidence_package_management_id)
+                        tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1.setText(log_history_start_date_time)
+                        tmp_Log_Digital_Evidence_Pack_History_End_Date_Time__lineEdit_1.setText(log_history_end_date_time)
+                        tmp_Log_log_type__lineEdit_1.setText(log_type)
+                        tmp_Log_log_description__lineEdit_1.setText(log_description)
+                        tmp_Log_devision_name_of_logger__lineEdit_1.setText(devision_name_of_logger)
+                        tmp_Log_team_name_of_logger__lineEdit_1.setText(team_name_of_logger)
+                        tmp_Log_rank_of_logger__lineEdit_1.setText(rank_of_logger)
+                        tmp_Log_name_of_logger__lineEdit_1.setText(name_of_logger)
+
+    # def KS_ExportButton_export_to_xml_file(self):
+    #     rootDigitalEvidencePack_Agency = Element('DigitalEvidencePack_Agency')
+    #     SubElement(rootDigitalEvidencePack_Agency, 'DigitalEvidencePackAgencyIncidentNo').text = self.CI_List[1].text()
+    #     SubElement(rootDigitalEvidencePack_Agency, 'DigitalEvidencePackAgencyOrganizationCode').text = self.CI_List[2].text()
+    #     SubElement(rootDigitalEvidencePack_Agency, 'DigitalEvidencePackAgencyOrganizationName').text = self.CI_List[3].text()
+    #     SubElement(rootDigitalEvidencePack_Agency, 'DigitalEvidencePackAgencyOrganizationPartyName').text = self.CI_List[4].text()
+    #
+    #     treeDigitalEvidencePack_Agency = ElementTree(rootDigitalEvidencePack_Agency)
+    #     treeDigitalEvidencePack_Agency.write(self.file_path + '.DigitalEvidencePack_Agency.xml')
 
     def KS_ExportButton_export_to_xml_file(self):
-        rootDigitalEvidencePack_Agency = Element('DigitalEvidencePack_Agency')
-        SubElement(rootDigitalEvidencePack_Agency, 'DigitalEvidencePackAgencyIncidentNo').text = self.CI_List[1].text()
-        SubElement(rootDigitalEvidencePack_Agency, 'DigitalEvidencePackAgencyOrganizationCode').text = self.CI_List[2].text()
-        SubElement(rootDigitalEvidencePack_Agency, 'DigitalEvidencePackAgencyOrganizationName').text = self.CI_List[3].text()
-        SubElement(rootDigitalEvidencePack_Agency, 'DigitalEvidencePackAgencyOrganizationPartyName').text = self.CI_List[4].text()
+        rootDigitalEvidencePack = Element('DigitalEvidencePack')
 
-        treeDigitalEvidencePack_Agency = ElementTree(rootDigitalEvidencePack_Agency)
-        treeDigitalEvidencePack_Agency.write(self.file_path + '.DigitalEvidencePack_Agency.xml')
+        rootManagement = Element('Management')
+        DigitalEvidencePackManagementIdentifier = SubElement(rootManagement, 'DigitalEvidencePackManagementIdentifier')
+
+        alphabet = "0123456789abcdefghijklmnopqrstuvwxyz0123456789"
+        number = ""
+
+        for i in range(10):
+            index = random.randrange(len(alphabet))
+            number = number + alphabet[index]
+
+        DigitalEvidencePackManagementIdentifier.text = 'DEP-' + number
+        DigitalEvidencePackFormatVersion = SubElement(rootManagement, 'DigitalEvidencePackFormatVersion')
+        DigitalEvidencePackFormatVersion.text = '0.1'
+        DigitalEvidencePackSizeNumeric = SubElement(rootManagement, 'DigitalEvidencePackSizeNumeric')
+        DigitalEvidencePackSizeNumeric.text = ' '
+
+        rootAgency = Element('Agency')
+        DigitalEvidencePackAgencyIncident = SubElement(rootAgency, 'DigitalEvidencePackAgencyIncident')
+        DigitalEvidencePackAgencyIncident.text = self.CI_List[1].text()
+        DigitalEvidencePackAgencyOrganizationCode = SubElement(rootAgency, 'DigitalEvidencePackAgencyOrganizationCode')
+        DigitalEvidencePackAgencyOrganizationCode.text = self.CI_List[2].text()
+        DigitalEvidencePackAgencyOrganizationName = SubElement(rootAgency, 'DigitalEvidencePackAgencyOrganizationName')
+        DigitalEvidencePackAgencyOrganizationName.text = self.CI_List[3].text()
+        DigitalEvidencePackAgencyOrganizationPartyName = SubElement(rootAgency,
+                                                                    'DigitalEvidencePackAgencyOrganizationPartyName')
+        DigitalEvidencePackAgencyOrganizationPartyName.text = self.CI_List[4].text()
+
+        rootDigitalEvidence = Element('DigitalEvidence')
+        Information = SubElement(rootDigitalEvidence, 'Information')
+        DigitalEvidenceSerialNo = SubElement(Information, 'DigitalEvidenceSerialNo')
+        DigitalEvidenceGather = SubElement(Information, 'DigitalEvidenceGather')
+        DigitalEvidenceGatherInformation = SubElement(DigitalEvidenceGather, 'DigitalEvidenceGatherInformation')
+        DateTime = SubElement(DigitalEvidenceGatherInformation, 'DateTime')
+        Location = SubElement(DigitalEvidenceGatherInformation, 'Location')
+        LocationName = SubElement(Location, 'LocationName')
+        Person = SubElement(DigitalEvidenceGatherInformation, 'LocationName')
+        GatherOrganizationPartyName = SubElement(Person, 'GatherOrganizationPartyName')
+        GatherOrganizationCode = SubElement(Person, 'GatherOrganizationCode')
+        GatherOrganizationName = SubElement(Person, 'GatherOrganizationName')
+        Source = SubElement(DigitalEvidenceGatherInformation, 'Source')
+        GatherSourceName = SubElement(Source, 'GatherSourceName')
+        RelationPerson = SubElement(DigitalEvidenceGatherInformation, 'RelationPerson')
+        GatherRelationPersonName = SubElement(RelationPerson, 'GatherRelationPersonName')
+        GatherRelationPersonTypeCode = SubElement(RelationPerson, 'GatherRelationPersonTypeCode')
+        GatherAuthentication = SubElement(DigitalEvidenceGatherInformation, 'GatherAuthentication')
+        FileMeta_GatherAuthentication = SubElement(GatherAuthentication, 'FileMeta')
+        Name_GatherAuthentication = SubElement(FileMeta_GatherAuthentication, 'Name')
+        Name_GatherAuthentication.text = 'None'
+        SizeNumeric_GatherAuthentication = SubElement(FileMeta_GatherAuthentication, 'SizeNumeric')
+        SizeNumeric_GatherAuthentication.text = '0'
+        DigitalEvidenceTypeCode = SubElement(Information, 'DigitalEvidenceTypeCode')
+        DigitalEvidenceFile = SubElement(Information, 'DigitalEvidenceFile')
+        FileMeta_DigitalEvidenceFile = SubElement(DigitalEvidenceFile, 'FileMeta')
+        Name_DigitalEvidenceFile = SubElement(FileMeta_DigitalEvidenceFile, 'Name')
+        Name_DigitalEvidenceFile.text = ' '
+        SizeNumeric_DigitalEvidenceFile = SubElement(FileMeta_DigitalEvidenceFile, 'SizeNumeric')
+        SizeNumeric_DigitalEvidenceFile.text = ' '
+
+
+        for list in self.DE_AddAll_List:
+            LocationName.text = list[18].text()
+            GatherOrganizationPartyName.text = list[19].text()
+            DateTime.text = list[20].text()
+            GatherOrganizationName.text = list[21].text()
+            GatherOrganizationCode.text = list[23].text()
+            GatherRelationPersonName.text = list[24].text()
+            GatherRelationPersonTypeCode.text = list[26].text()
+            GatherSourceName.text = list[28].text()
+            DigitalEvidenceSerialNo.text = list[50].text()
+            DigitalEvidenceTypeCode.text = list[51].text()
+
+        rootHistory = Element('History')
+        DigitalEvidencePackHistoryTypeCode = SubElement(rootHistory, 'DigitalEvidencePackHistoryTypeCode')
+        DigitalEvidencePackHistoryStartDateTime = SubElement(rootHistory, 'DigitalEvidencePackHistoryStartDateTime')
+        DigitalEvidencePackHistoryStartDateTime.text = ' ' # 시작시간 체크
+        DigitalEvidencePackHistoryEndDateTime = SubElement(rootHistory, 'DigitalEvidencePackHistoryEndDateTime')
+        DigitalEvidencePackHistoryEndDateTime.text = ' '
+
+        for list in self.Log_List:
+            DigitalEvidencePackHistoryTypeCode.text = list[3].text() #encoding="utf-8"
+
+        treeDigitalEvidence = ElementTree(rootDigitalEvidence)
+        treeDigitalEvidence.write(self.file_path + '_' + DigitalEvidencePackManagementIdentifier.text + '.xml')
+
+        DigitalEvidencePackSizeNumeric.text = str(os.path.getsize(self.file_path + '_' + DigitalEvidencePackManagementIdentifier.text + '.xml'))
+        if os.path.isfile(self.file_path + '_' + DigitalEvidencePackManagementIdentifier.text + '.xml'):
+            os.remove(self.file_path + '_' + DigitalEvidencePackManagementIdentifier.text + '.xml')
+
+        rootDigitalEvidencePack.append(rootManagement)
+        rootDigitalEvidencePack.append(rootAgency)
+        rootDigitalEvidencePack.append(rootDigitalEvidence)
+        rootDigitalEvidencePack.append(rootHistory)
+
+        def indent(elem, level=0):
+            i = "\n" + level * "   "
+            if len(elem):
+                if not elem.text or not elem.text.strip():
+                    elem.text = i + "   "
+                if not elem.tail or not elem.tail.strip():
+                    elem.tail = i
+                for elem in elem:
+                    indent(elem, level + 1)
+                if not elem.tail or not elem.tail.strip():
+                    elem.tail = i
+            else:
+                if level and (not elem.tail or not elem.tail.strip()):
+                    elem.tail = i
+
+        indent(rootDigitalEvidencePack)
+
+        treeDigitalEvidencePack = ElementTree(rootDigitalEvidencePack)
+        treeDigitalEvidencePack.write(self.file_path + '.xml')
 
     def ExportButton_exporttojsonfile(self):
 
@@ -2602,11 +2893,12 @@ class Ui_SecondWindow(object):
         for list in self.Log_List:
             list_Log.append(
                 {'digital_evidence_package_management_id': list[0].text(),
-                 'log_datetime': str(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))),
-                 'log_type': list[2].text(), 'log_description': list[3].text(),
-                 'devision_name_of_logger': list[4].text(),
-                 'team_name_of_logger': list[5].text(), 'rank_of_logger': list[6].text(),
-                 'name_of_logger': list[7].text(),
+                 'log_history_start_date_time': list[1].text(),
+                 'log_history_end_date_time': str(datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9)))),
+                 'log_type': list[3].text(), 'log_description': list[4].text(),
+                 'devision_name_of_logger': list[5].text(),
+                 'team_name_of_logger': list[6].text(), 'rank_of_logger': list[7].text(),
+                 'name_of_logger': list[8].text()
                  }
             )
         dict_json['Log'] = list_Log
@@ -2907,7 +3199,7 @@ class Ui_SecondWindow(object):
         tmp_DE_Gather_Info_file__scrollArea_1.setWidget(tmp_DE_Gather_Info_file__scrollAreaWidgetContents_1)
         tmp_DE_Gather_Info_file__horizontalLayout_1.addWidget(tmp_DE_Gather_Info_file__scrollArea_1)
         tmp_gridLayout_27.addLayout(tmp_DE_Gather_Info_file__horizontalLayout_1, 0, 0, 1, 1)
-        self.tabWidget_9.addTab(tmp_tab_8, "Tab" + str(len(self.DE_Gather_Info_File_List) + 1))
+        self.tabWidget_9.addTab(tmp_tab_8, "Tab" + str(len(self.DE_Gather_Info_List) + 1))
 
         tmp_list = list()
         tmp_list.append(tmp_DE_Gather_Info_file__filebrowse__lineEdit_1)
@@ -2916,7 +3208,7 @@ class Ui_SecondWindow(object):
         tmp_list.append(tmp_DE_Gather_Info_gather_hash__lineEdit_1)
         tmp_list.append(tmp_DE_Gather_Info_gather_path__lineEdit_1)
         tmp_list.append(tmp_DE_Gather_Info_gather_metadata__lineEdit_1)
-        self.DE_Gather_Info_File_List.append(tmp_list)
+        self.DE_Gather_Info_List.append(tmp_list)
 
 
         tmp_DE_Gather_Info_file__filebrowse__label_1.setText("파일 입력")
@@ -3299,6 +3591,8 @@ class Ui_SecondWindow(object):
         tmp_gridLayout_29.addWidget(tmp_DE_Acquisition_Info__scrollArea_1, 0, 0, 1, 1)
         self.tabWidget_8.addTab(tmp_tab_6, "Tab" + str(len(self.DE_Acquisition_Info_List) +1))
 
+        tmp_DE_Acquisition_Info_acquisition_date_time__lineEdit_1.setPlaceholderText("ex) 2021-11-30-19:58:13.829475+09:00")
+
         tmp_list = list()
         tmp_list.append(tmp_DE_Authentication_ID__lineEdit_1)
         tmp_list.append(tmp_DE_Acquisition_Info_acquisition_person_name__lineEdit_1)
@@ -3323,10 +3617,19 @@ class Ui_SecondWindow(object):
 
         self.DE_Acquisition_Info_List.append(tmp_list)
 
+        _translate = QtCore.QCoreApplication.translate
+
         tmp_DE_Authentication_ID__label_1.setText("수집 id:")
         tmp_DE_Acquisition_Info_acquisition_person_name__label_1.setText("수집자명:")
         tmp_DE_Acquisition_Info_acquisition_date_time__label_1.setText("수집 시간:")
-        tmp_DE_Acquisition_Info_acquisition_date_time__lineEdit_1.setPlaceholderText("ex) 2021-11-30 19:58:13.829475+09:00")
+
+        tmp_DE_Gather_Info_gather_datetime__lineEdit_1.setPlaceholderText(
+            _translate("SecondWindow", "ex) 2021-11-30 19:58:13.829475+09:00"))
+        tmp_DE_Acquisition_Info_acquisition_date_time__lineEdit_1.setPlaceholderText(
+            _translate("SecondWindow", "ex) 2021-11-30 19:58:13.829475+09:00"))
+
+
+
         tmp_DE_Acquisition_Info_acquisition_location__label_1.setText("수집 장소:")
         tmp_DE_Acquisition_Info_acquisition_tool__label_1.setText("수집 도구:")
         tmp_DE_Acquisition_Info_acquisition_tool_version__label_1.setText("수집 도구 버젼:")
@@ -3334,7 +3637,7 @@ class Ui_SecondWindow(object):
 
         tmp_DE_Acquisition_Info_DEF__label_1.setText("디지털 증거 파일")
         tmp_DE_Acquisition_Info_DEF__addButton_1.setText("+추가")
-        _translate = QtCore.QCoreApplication.translate
+
         tmp_tabWidget_10.setTabText(self.tabWidget_10.indexOf(self.tab_9), _translate("SecondWindow", "Tab 1"))
 
 
@@ -4315,6 +4618,8 @@ class Ui_SecondWindow(object):
         tmp_gridLayout_26.addWidget(tmp_DE__scrollArea_1, 1, 0, 1, 1)
         self.tabWidget_3.addTab(tmp_tab_2, "Tab" + str(len(self.DE_AddAll_List) +1))
 
+
+
         tmp_list = list()
         tmp_list.append(tmp_DE_Vessel_Info_vessel_name__lineEdit_1)  # 0
         tmp_list.append(tmp_DE_Vessel_Info_vessel_management_id__lineEdit_1)  # 1
@@ -4395,10 +4700,11 @@ class Ui_SecondWindow(object):
         tmp_DE_Vessel_Info__label_1.setText("선박 정보")
         tmp_DE_Marine_Electronics_Info__label_1.setText("해양 장비 정보")
 
-        tmp_DE_Gather_Info__label_1.setText("")
-        tmp_DE_other_files__label_1.setText("")
-
+        tmp_DE_Gather_Info__label_1.setText("채증 정보")
+        tmp_DE_Gather_Info_file__blanklabel_1.setText("채증 정보 파일")
+        tmp_DE_other_files__label_1.setText("기타 파일(jpg, mp4, txt, bin 등)")
         tmp_DE_Acquisition_Info__label_1.setText("수집 정보")
+        tmp_DE_Acquisition_Info_DEF__label_1.setText("디지털 증거 파일")
 
         _translate = QtCore.QCoreApplication.translate
         tmp_tabWidget_9.setTabText(self.tabWidget_9.indexOf(self.tab_8), _translate("SecondWindow", "Tab 1"))
@@ -4496,6 +4802,13 @@ class Ui_SecondWindow(object):
         tmp_DE_Acquisition_Info_DEF_sector_size__label_1.setText("섹터 크기:")  # 59
         tmp_DE_Acquisition_Info_DEF_file_size__label_1.setText("파일 크기:")  # 60
         tmp_DE_Acquisition_Info_DEF__metadata__label_1.setText("파일 메타데이터:")  # 61
+
+        a = len(self.DE_AddAll_List)
+        tmp_DE_Gather_Info__addButton_1.clicked.connect(
+            lambda: self.DE_Gather_Info__addButton_1_AddGatherInfoFile2(a))
+
+    def DE_Gather_Info__addButton_1_AddGatherInfoFile2(self, a):
+        print("d")
 
 
 
@@ -5188,7 +5501,7 @@ class Ui_SecondWindow(object):
         tmp_AI_other_files_file_browse__enterButton_1.setText("Enter")
 
         tmp_AI_other_files_id__label_1.setText("고유번호: ")
-        tmp_AI_other_files_type__label_1.setText("파일유형: ")
+        tmp_AI_other_files_type__label_1.setText("파일유형:")
         tmp_AI_other_files_file_size__label_1.setText("파일크기: ")
         tmp_AI_other_files_file_path__label_1.setText("파일 경로: ")
         tmp_AI_other_files_file_hash_type__label_1.setText("해시종류: ")
@@ -5325,6 +5638,7 @@ class Ui_SecondWindow(object):
 
         tmp_list = list()
         tmp_list.append(tmp_Log_digital_evidence_package_management_id__lineEdit_1)
+        tmp_list.append(tmp_Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1)
         tmp_list.append(now)
         tmp_list.append(tmp_Log_log_type__lineEdit_1)
         tmp_list.append(tmp_Log_log_description__lineEdit_1)
@@ -5363,17 +5677,17 @@ class Ui_SecondWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Case_Info_tab), _translate("SecondWindow", "Case Info"))
         self.DE__addButton.setText(_translate("SecondWindow", "+추가"))
         self.DE_Digitlal_Evidence__label.setText(_translate("SecondWindow", "디지털 증거"))
-        self.DE_Gather_Info_gather_no__label_1.setText(_translate("SecondWindow", "채증 번호: "))
+        self.DE_Gather_Info_gather_no__label_1.setText(_translate("SecondWindow", "채증 번호:"))
         self.DE_Gather_Info_gather_location__label_1.setText(_translate("SecondWindow", "채증 장소:"))
         self.DE_Gather_Info_gather_person_name__label_1.setText(_translate("SecondWindow", "채증 담당자:"))
         self.DE_Gather_Info_gather_datetime__label_1.setText(_translate("SecondWindow", "채증 시간:"))
         self.DE_Gather_Info_gather_datetime__lineEdit_1.setPlaceholderText(_translate("SecondWindow", "ex) 2021-11-30 19:58:13.829475+09:00"))
         self.DE_Gather_Info_gather_person_agency__label_1.setText(_translate("SecondWindow", "채증 기관:"))
         self.DE_Gather_Info_gather_person_rank__label_1.setText(_translate("SecondWindow", "채증 담당자 계급:"))
-        self.DE_Gather_Info_organization_code__label_1.setText(_translate("SecondWindow", "소속 조직 코드: "))
+        self.DE_Gather_Info_organization_code__label_1.setText(_translate("SecondWindow", "소속 조직 코드:"))
         self.DE_Gather_Info_submitter_name__label_1.setText(_translate("SecondWindow", "피압수자:"))
-        self.DE_Gather_Inf_Gather_Source_Name__label_1.setText(_translate("SecondWindow", "정보 저장 매체명: "))
-        self.DE_Gather_Inf_Gather_Relation_Person_Type_Code___label_1.setText(_translate("SecondWindow", "수집 대상자 유형: "))
+        self.DE_Gather_Inf_Gather_Source_Name__label_1.setText(_translate("SecondWindow", "정보 저장 매체명:"))
+        self.DE_Gather_Inf_Gather_Relation_Person_Type_Code___label_1.setText(_translate("SecondWindow", "수집 대상자 유형:"))
         self.DE_Gather_Info_file__filebrowse__label_1.setText(_translate("SecondWindow", "파일 입력"))
         self.DE_Gather_Info_file__filebrowse__browseButton_1.setText(_translate("SecondWindow", "Browse..."))
         self.DE_Gather_Info_file__filebrowse__enterButton_1.setText(_translate("SecondWindow", "Enter"))
@@ -5384,8 +5698,8 @@ class Ui_SecondWindow(object):
         self.DE_Gather_Info_gather_metadata__label_1.setText(_translate("SecondWindow", "파일 메타데이터: "))
         self.tabWidget_9.setTabText(self.tabWidget_9.indexOf(self.tab_8), _translate("SecondWindow", "Tab 1"))
         self.DE_Gather_Info_file__blanklabel_1.setText(_translate("SecondWindow", "채증 정보 파일"))
-        self.DE_Gather_Info__addButton_1.setText(_translate("SecondWindow", "+"))
-        self.DE_Vessel_Info__label_1.setText(_translate("SecondWindow", "   선박 정보"))
+        self.DE_Gather_Info__addButton_1.setText(_translate("SecondWindow", "+추가"))
+        self.DE_Vessel_Info__label_1.setText(_translate("SecondWindow", "선박 정보"))
         self.DE_Vessel_Info_vessel_name__label_1.setText(_translate("SecondWindow", "선박 이름:"))
         self.DE_Vessel_Info_vessel_management_id__label_1.setText(_translate("SecondWindow", "선박 관리 고유 번호:"))
         self.DE_Vessel_Info_vessel_MMSI__label_1.setText(_translate("SecondWindow", "선박 MMSI:"))
@@ -5394,8 +5708,8 @@ class Ui_SecondWindow(object):
         self.DE_Vessel_Info_vessel_MRN__label_1.setText(_translate("SecondWindow", "선박 MRN:"))
         self.DE_Vessel_Info_vessel_tonnage__label_1.setText(_translate("SecondWindow", "선박 톤수:"))
         self.DE_Vessel_Info_vessel_length__label_1.setText(_translate("SecondWindow", "선박 길이:"))
-        self.DE_Vessel_Info_vessel_total_number_of_equipmentwith_track__label_1.setText(_translate("SecondWindow", "항적 분석 장비 수:"))
-        self.DE_Vessel_Type__label_1.setText(_translate("SecondWindow", "선박 유형: "))
+        self.DE_Vessel_Info_vessel_total_number_of_equipmentwith_track__label_1.setText(_translate("SecondWindow", "항적 분석 장비수:"))
+        self.DE_Vessel_Type__label_1.setText(_translate("SecondWindow", "선박 유형:"))
         self.DE_Marines_Electronics_Info_device_management_id__label_1.setText(_translate("SecondWindow", "장비 관리 고유 번호:"))
         self.DE_Marines_Electronics_Info_device_type__label_1.setText(_translate("SecondWindow", "장비 유형:"))
         self.DE_Marines_Electronics_Info_device_manufacturer__label_1.setText(_translate("SecondWindow", "장비 제조사:"))
@@ -5403,23 +5717,23 @@ class Ui_SecondWindow(object):
         self.DE_Marines_Electronics_Info_device_model_serial_number__label_1.setText(_translate("SecondWindow", "장비 모델 시리얼 넘버:"))
         self.DE_Marines_Electronics_Info_device_os_firmware__label_1.setText(_translate("SecondWindow", "장비 os firmware:"))
         self.DE_Marines_Electronics_Info_device_description__label_1.setText(_translate("SecondWindow", "장비 설명:"))
-        self.DE_Marine_Electronics_Info__label_1.setText(_translate("SecondWindow", "   해양 장비 정보"))
-        self.DE_Gather_Info__label_1.setText(_translate("SecondWindow", " 채증 정보"))
+        self.DE_Marine_Electronics_Info__label_1.setText(_translate("SecondWindow", "해양 장비 정보"))
+        self.DE_Gather_Info__label_1.setText(_translate("SecondWindow", "채증 정보"))
         self.DE_other_files__label_1.setText(_translate("SecondWindow", "기타 파일(jpg, mp4, txt, bin 등)"))
-        self.DE_other_files__addButton_1.setText(_translate("SecondWindow", "+"))
+        self.DE_other_files__addButton_1.setText(_translate("SecondWindow", "+추가"))
         self.DE_other_files_file_browse__label_1.setText(_translate("SecondWindow", "파일 입력:"))
         self.DE_other_files_file_browse__browseButton_1.setText(_translate("SecondWindow", "Browse..."))
         self.DE_other_files_file_browse__EnterButton_1.setText(_translate("SecondWindow", "Enter"))
         self.DE_other_files_id__label_1.setText(_translate("SecondWindow", "고유번호:"))
-        self.DE_other_files_type__label_1.setText(_translate("SecondWindow", "파일유형: "))
-        self.DE_other_files_file_size__label_1.setText(_translate("SecondWindow", "파일크기: "))
-        self.DE_other_files_file_path__label_1.setText(_translate("SecondWindow", "파일 경로: "))
-        self.DE_other_files_file_hash_type__label_1.setText(_translate("SecondWindow", "해시 종류: "))
-        self.DE_other_files_file_hash_value__label_1.setText(_translate("SecondWindow", "해시값: "))
+        self.DE_other_files_type__label_1.setText(_translate("SecondWindow", "파일유형:"))
+        self.DE_other_files_file_size__label_1.setText(_translate("SecondWindow", "파일크기:"))
+        self.DE_other_files_file_path__label_1.setText(_translate("SecondWindow", "파일 경로:"))
+        self.DE_other_files_file_hash_type__label_1.setText(_translate("SecondWindow", "해시 종류:"))
+        self.DE_other_files_file_hash_value__label_1.setText(_translate("SecondWindow", "해시값:"))
         self.DE_other_files_file_description__label_1.setText(_translate("SecondWindow", "파일 설명: "))
-        self.DE_other_files_file_metadata__label_1.setText(_translate("SecondWindow", "파일 메타데이터: "))
+        self.DE_other_files_file_metadata__label_1.setText(_translate("SecondWindow", "파일 메타데이터:"))
         self.tabWidget_7.setTabText(self.tabWidget_7.indexOf(self.tab_4), _translate("SecondWindow", "Tab 1"))
-        self.DE_Acquisition_Info__label_1.setText(_translate("SecondWindow", " 수집 정보"))
+        self.DE_Acquisition_Info__label_1.setText(_translate("SecondWindow", "수집 정보"))
         self.DE_Acquisition_Info__addButton_1.setText(_translate("SecondWindow", "+추가"))
         self.DE_Authentication_ID__label_1.setText(_translate("SecondWindow", "수집 id"))
         self.DE_Acquisition_Info_acquisition_person_name__label_1.setText(_translate("SecondWindow", "수집자명:"))
@@ -5428,12 +5742,12 @@ class Ui_SecondWindow(object):
         self.DE_Acquisition_Info_acquisition_location__label_1.setText(_translate("SecondWindow", "수집 장소:"))
         self.DE_Acquisition_Info_acquisition_tool__label_1.setText(_translate("SecondWindow", "수집 도구:"))
         self.DE_Acquisition_Info_acquisition_tool_version__label_1.setText(_translate("SecondWindow", "수집 도구 버젼:"))
-        self.DE_Authentication_Person_Party_Name__label_1.setText(_translate("SecondWindow", "수집 부서: "))
-        self.DE_Acquisition_Info_DEF_serial_no__label_1.setText(_translate("SecondWindow", "일련 번호: "))
+        self.DE_Authentication_Person_Party_Name__label_1.setText(_translate("SecondWindow", "수집 부서:"))
+        self.DE_Acquisition_Info_DEF_serial_no__label_1.setText(_translate("SecondWindow", "일련 번호:"))
         self.DE_Acquisition_Info_DEF_management_id__label_1.setText(_translate("SecondWindow", "관리 번호:"))
         self.DE_Acquisition_Info_DEF_digital_evidence_type__label_1.setText(_translate("SecondWindow", "디지털 증거 유형:"))
         self.DE_Acquisition_Info_DEF_evidences_gathering_type__label_1.setText(_translate("SecondWindow", "증거 채증 유형:"))
-        self.DE_Acquisition_Info_DEF_gather_no__label_1.setText(_translate("SecondWindow", "채증 번호"))
+        self.DE_Acquisition_Info_DEF_gather_no__label_1.setText(_translate("SecondWindow", "채증 번호:"))
         self.DE_Acquisition_Info_DEF_browse__label_1.setText(_translate("SecondWindow", "파일입력:"))
         self.DE_Acquisition_Info_DEF_browse__browseButton_1.setText(_translate("SecondWindow", "Browse..."))
         self.DE_Acquisition_Info_DEF_browse__enterButton_1.setText(_translate("SecondWindow", "Enter"))
@@ -5446,7 +5760,7 @@ class Ui_SecondWindow(object):
         self.DE_Acquisition_Info_DEF__metadata__label_1.setText(_translate("SecondWindow", "파일 메타데이터: "))
         self.tabWidget_10.setTabText(self.tabWidget_10.indexOf(self.tab_9), _translate("SecondWindow", "Tab 1"))
         self.DE_Acquisition_Info_DEF__label_1.setText(_translate("SecondWindow", "디지털 증거 파일"))
-        self.DE_Acquisition_Info_DEF__addButton_1.setText(_translate("SecondWindow", "+"))
+        self.DE_Acquisition_Info_DEF__addButton_1.setText(_translate("SecondWindow", "+추가"))
         self.tabWidget_8.setTabText(self.tabWidget_8.indexOf(self.tab_6), _translate("SecondWindow", "Tab 1"))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_2), _translate("SecondWindow", "Tab 1"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.DE_tab), _translate("SecondWindow", "Digital Evidences"))
@@ -5534,4 +5848,4 @@ if __name__ == "__main__":
     SecondWindow.show()
     sys.exit(app.exec_())
 
-#DE_All addTab 완료
+# Log +까지 load완료
