@@ -34,9 +34,15 @@ class Ui_SecondWindow(object):
         self.DE_Gather_Info_File_List = list()
 
         # DE 채증정보 add , 3차원
-        self.DE_Gather_Info_num = 1
+        # self.DE_Gather_Info_num = 1
+        # self.DE_Gather_Info_List = list()
+        # self.DE_Gather_Info_List.append(list())
+
         self.DE_Gather_Info_List = list()
         self.DE_Gather_Info_List.append(list())
+        self.DE_Gather_Info_Button_List = list()
+        self.DE_Gather_Info_Button_List.append(list())
+        self.DE_Gather_Info_Tab_Widget_List = list()
 
         # DE 수집 정보 add , 3차원
         self.DE_Acquisition_Info_num = 1
@@ -1700,6 +1706,10 @@ class Ui_SecondWindow(object):
         self.tabWidget_2.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(SecondWindow)
 
+        ### tabwidget 저장
+        self.DE_Gather_Info_Tab_Widget_List.append(self.tabWidget_9)
+
+
         self.AI_Reports_file_name__lineEdit_1.setReadOnly(True)
         self.AI_Reports_file_size__lineEdit_1.setReadOnly(True)
         self.AI_Reports_file_path__lineEdit_1.setReadOnly(True)
@@ -1750,13 +1760,22 @@ class Ui_SecondWindow(object):
         tmp_list.append(self.DE_Gather_Inf_Gather_Source_Name__lineEdit_1) #25
         tmp_list.append(self.DE_Gather_Inf_Gather_Relation_Person_Type_Code___lineEdit_1) #26
 
-        # Gather추가
-        tmp_list.append(self.DE_Gather_Info_file__filebrowse__lineEdit_1) #27
-        tmp_list.append(self.DE_Gather_Info_gather_media_type__lineEdit_1)  #28
-        tmp_list.append(self.DE_Gather_Info__gather_hash_type__lineEdit_1) #29
-        tmp_list.append(self.DE_Gather_Info_gather_hash__lineEdit_1) #30
-        tmp_list.append(self.DE_Gather_Info_gather_path__lineEdit_1) #31
-        tmp_list.append(self.DE_Gather_Info_gather_metadata__lineEdit_1)  #32
+        # # Gather추가
+        # gather_info_list = list()
+        # gather_info_list.append(self.DE_Gather_Info_file__filebrowse__lineEdit_1)
+        # gather_info_list.append(self.DE_Gather_Info_gather_media_type__lineEdit_1)
+        # gather_info_list.append(self.DE_Gather_Info__gather_hash_type__lineEdit_1)
+        # gather_info_list.append(self.DE_Gather_Info_gather_hash__lineEdit_1)
+        # gather_info_list.append(self.DE_Gather_Info_gather_path__lineEdit_1)
+        # gather_info_list.append(self.DE_Gather_Info_gather_metadata__lineEdit_1)
+        # self.DE_Gather_Info_List[0].append(gather_info_list)
+        #
+        # tmp_list.append(self.DE_Gather_Info_file__filebrowse__lineEdit_1) #27
+        # tmp_list.append(self.DE_Gather_Info_gather_media_type__lineEdit_1)  #28
+        # tmp_list.append(self.DE_Gather_Info__gather_hash_type__lineEdit_1) #29
+        # tmp_list.append(self.DE_Gather_Info_gather_hash__lineEdit_1) #30
+        # tmp_list.append(self.DE_Gather_Info_gather_path__lineEdit_1) #31
+        # tmp_list.append(self.DE_Gather_Info_gather_metadata__lineEdit_1)  #32
 
         # 기타파일 추가
         tmp_list.append(self.DE_other_files_file_browse__lineEdit_1)  #33
@@ -1927,8 +1946,26 @@ class Ui_SecondWindow(object):
         self.Log_List.append(tmp_list)
 
         ##DE_Gather_Info Browse버튼 클릭하면 파일 업로드
-        self.DE_Gather_Info_file__filebrowse__browseButton_1.clicked.connect(
-            lambda: self.DE_Gather_Info_file__filebrowse__browseButton_1_QFileDialog(0, 0))
+        gather_info_button_list = list()
+        gather_info_button_list.append(self.DE_Gather_Info_file__filebrowse__browseButton_1)
+        gather_info_button_list.append(self.DE_Gather_Info_file__filebrowse__enterButton_1)
+        self.DE_Gather_Info_Button_List[0].append(gather_info_button_list)
+
+        self.DE_Gather_Info_Button_List[0][0][0].clicked.connect(
+            lambda: self.DE_Gather_Info_file__filebrowse__browseButton_1_QFileDialog(0, 0)
+        )
+        self.DE_Gather_Info_Button_List[0][0][1].clicked.connect(
+            lambda: self.DE_Gather_Info_file__filebrowse__enterButton_1_Calculate(0, 0)
+        )
+
+        # self.DE_Gather_Info_file__filebrowse__browseButton_1.clicked.connect(
+        #     lambda: self.DE_Gather_Info_file__filebrowse__browseButton_1_QFileDialog(0, 0))
+        #
+        # # DE gather에서 enter버튼 클릭하면 계산
+        # self.DE_Gather_Info_file__filebrowse__enterButton_1.clicked.connect(
+        #     lambda: self.DE_Gather_Info_file__filebrowse__enterButton_1_Calculate(0, 0))
+
+
 
         ##DE Other File에서 Browse누르면 파일 클릭하면 파일 업로드
         self.DE_other_files_file_browse__browseButton_1.clicked.connect(
@@ -1937,9 +1974,6 @@ class Ui_SecondWindow(object):
         self.DE_Acquisition_Info_DEF_browse__browseButton_1.clicked.connect(
             lambda: self.DE_Acquisition_Info_DEF_browse__browseButton_1_QFileDialog(0, 0))
 
-        # DE gather에서 enter버튼 클릭하면 계산
-        self.DE_Gather_Info_file__filebrowse__enterButton_1.clicked.connect(
-            lambda: self.DE_Gather_Info_file__filebrowse__enterButton_1_Calculate(0, 0))
 
         self.DE_other_files_file_browse__EnterButton_1.clicked.connect(
             lambda: self.DE_other_files_file_browse__EnterButton_1_Calculate(0, 0))
@@ -1950,7 +1984,7 @@ class Ui_SecondWindow(object):
 
         #DE Gather에서 addTab
         self.DE_Gather_Info__addButton_1.clicked.connect(
-            self.DE_Gather_Info_AddTab)
+            lambda: self.DE_Gather_Info_AddTab(0))
 
         #DE Other에서 addTab
         self.DE_other_files__addButton_1.clicked.connect(
@@ -2953,7 +2987,7 @@ class Ui_SecondWindow(object):
             sha256.update(content)
 
             input_file = file_path
-            exe = "hachoir-metadata"
+            exe = "hachoir-metadata.exe"
             process = subprocess.Popen([exe, input_file], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                                        universal_newlines=True)
             out_list = []
@@ -3117,7 +3151,9 @@ class Ui_SecondWindow(object):
         ## AI Report Browse 버튼 클릭하면 파일 업로드
 
 
-    def DE_Gather_Info_AddTab(self):
+    def DE_Gather_Info_AddTab(self, a):
+
+
 
         tmp_tab_8 = QtWidgets.QWidget()
         tmp_tab_8.setObjectName("tab_8")
@@ -3199,7 +3235,10 @@ class Ui_SecondWindow(object):
         tmp_DE_Gather_Info_file__scrollArea_1.setWidget(tmp_DE_Gather_Info_file__scrollAreaWidgetContents_1)
         tmp_DE_Gather_Info_file__horizontalLayout_1.addWidget(tmp_DE_Gather_Info_file__scrollArea_1)
         tmp_gridLayout_27.addLayout(tmp_DE_Gather_Info_file__horizontalLayout_1, 0, 0, 1, 1)
-        self.tabWidget_9.addTab(tmp_tab_8, "Tab" + str(len(self.DE_Gather_Info_List) + 1))
+        self.DE_Gather_Info_Tab_Widget_List[a].addTab(tmp_tab_8, "Tab" + str(len(self.DE_Gather_Info_List[a]) + 1))
+
+
+
 
         tmp_list = list()
         tmp_list.append(tmp_DE_Gather_Info_file__filebrowse__lineEdit_1)
@@ -3208,7 +3247,21 @@ class Ui_SecondWindow(object):
         tmp_list.append(tmp_DE_Gather_Info_gather_hash__lineEdit_1)
         tmp_list.append(tmp_DE_Gather_Info_gather_path__lineEdit_1)
         tmp_list.append(tmp_DE_Gather_Info_gather_metadata__lineEdit_1)
-        self.DE_Gather_Info_List.append(tmp_list)
+        self.DE_Gather_Info_List[a].append(tmp_list)
+
+        gather_info_button_list = list()
+        gather_info_button_list.append(tmp_DE_Gather_Info_file__filebrowse__browseButton_1)
+        gather_info_button_list.append(tmp_DE_Gather_Info_file__filebrowse__enterButton_1)
+        self.DE_Gather_Info_Button_List[a].append(gather_info_button_list)
+
+        tmp_len = len(self.DE_Gather_Info_Button_List[a])-1
+        self.DE_Gather_Info_Button_List[a][tmp_len][0].clicked.connect(
+            lambda: self.DE_Gather_Info_file__filebrowse__browseButton_1_QFileDialog(a, tmp_len)
+        )
+        self.DE_Gather_Info_Button_List[a][tmp_len][1].clicked.connect(
+            lambda: self.DE_Gather_Info_file__filebrowse__enterButton_1_Calculate(a, tmp_len)
+        )
+
 
 
         tmp_DE_Gather_Info_file__filebrowse__label_1.setText("파일 입력")
@@ -3840,6 +3893,9 @@ class Ui_SecondWindow(object):
         tmp_DE_Acquisition_Info_DEF__metadata__label_1.setText("파일 메타데이터:")
 
     def DE_AddTab(self):
+
+        self.DE_Gather_Info_List.append(list())
+        self.DE_Gather_Info_Button_List.append(list())
 
         tmp_tab_2 = QtWidgets.QWidget()
         tmp_tab_2.setObjectName("tab_2")
@@ -4618,6 +4674,7 @@ class Ui_SecondWindow(object):
         tmp_gridLayout_26.addWidget(tmp_DE__scrollArea_1, 1, 0, 1, 1)
         self.tabWidget_3.addTab(tmp_tab_2, "Tab" + str(len(self.DE_AddAll_List) +1))
 
+        self.DE_Gather_Info_Tab_Widget_List.append(tmp_tabWidget_9)
 
 
         tmp_list = list()
@@ -4652,12 +4709,40 @@ class Ui_SecondWindow(object):
         tmp_list.append(tmp_DE_Gather_Inf_Gather_Relation_Person_Type_Code___lineEdit_1)  # 26
 
         # Gather추가
-        tmp_list.append(tmp_DE_Gather_Info_file__filebrowse__lineEdit_1)  # 27
-        tmp_list.append(tmp_DE_Gather_Info_gather_media_type__lineEdit_1)  # 28
-        tmp_list.append(tmp_DE_Gather_Info__gather_hash_type__lineEdit_1)  # 29
-        tmp_list.append(tmp_DE_Gather_Info_gather_hash__lineEdit_1)  # 30
-        tmp_list.append(tmp_DE_Gather_Info_gather_path__lineEdit_1)  # 31
-        tmp_list.append(tmp_DE_Gather_Info_gather_metadata__lineEdit_1)  # 32
+        gather_info_list = list()
+        gather_info_list.append(tmp_DE_Gather_Info_file__filebrowse__lineEdit_1)
+        gather_info_list.append(tmp_DE_Gather_Info_gather_media_type__lineEdit_1)
+        gather_info_list.append(tmp_DE_Gather_Info__gather_hash_type__lineEdit_1)
+        gather_info_list.append(tmp_DE_Gather_Info_gather_hash__lineEdit_1)
+        gather_info_list.append(tmp_DE_Gather_Info_gather_path__lineEdit_1)
+        gather_info_list.append(tmp_DE_Gather_Info_gather_metadata__lineEdit_1)
+        self.DE_Gather_Info_List[len(self.DE_Gather_Info_List)-1].append(gather_info_list)
+
+        gather_info_button_list = list()
+        gather_info_button_list.append(tmp_DE_Gather_Info_file__filebrowse__browseButton_1)
+        gather_info_button_list.append(tmp_DE_Gather_Info_file__filebrowse__enterButton_1)
+        self.DE_Gather_Info_Button_List[len(self.DE_Gather_Info_List)-1].append(gather_info_button_list)
+
+        tmp_len = len(self.DE_Gather_Info_List)-1
+        #[큰탭][소탭][버튼]
+        self.DE_Gather_Info_Button_List[tmp_len][0][0].clicked.connect(
+            lambda: self.DE_Gather_Info_file__filebrowse__browseButton_1_QFileDialog(tmp_len, 0)
+        )
+        self.DE_Gather_Info_Button_List[tmp_len][0][1].clicked.connect(
+            lambda: self.DE_Gather_Info_file__filebrowse__enterButton_1_Calculate(tmp_len, 0)
+        )
+
+        tmp_DE_Gather_Info__addButton_1.clicked.connect(
+            lambda: self.DE_Gather_Info_AddTab(tmp_len)
+        )
+
+
+        # tmp_list.append(tmp_DE_Gather_Info_file__filebrowse__lineEdit_1)  # 27
+        # tmp_list.append(tmp_DE_Gather_Info_gather_media_type__lineEdit_1)  # 28
+        # tmp_list.append(tmp_DE_Gather_Info__gather_hash_type__lineEdit_1)  # 29
+        # tmp_list.append(tmp_DE_Gather_Info_gather_hash__lineEdit_1)  # 30
+        # tmp_list.append(tmp_DE_Gather_Info_gather_path__lineEdit_1)  # 31
+        # tmp_list.append(tmp_DE_Gather_Info_gather_metadata__lineEdit_1)  # 32
 
         # 기타파일 추가
         tmp_list.append(tmp_DE_other_files_file_browse__lineEdit_1)  # 33
@@ -4694,6 +4779,11 @@ class Ui_SecondWindow(object):
         tmp_list.append(tmp_DE_Acquisition_Info_DEF__metadata__lineEdit_1)  # 61
 
         self.DE_AddAll_List.append(tmp_list)
+
+
+
+
+
 
         tmp_DE_Digitlal_Evidence__label.setText("디지털 증거")
 
@@ -4803,13 +4893,9 @@ class Ui_SecondWindow(object):
         tmp_DE_Acquisition_Info_DEF_file_size__label_1.setText("파일 크기:")  # 60
         tmp_DE_Acquisition_Info_DEF__metadata__label_1.setText("파일 메타데이터:")  # 61
 
-        a = len(self.DE_AddAll_List)
-        tmp_DE_Gather_Info__addButton_1.clicked.connect(
-            lambda: self.DE_Gather_Info__addButton_1_AddGatherInfoFile2(a))
-
-    def DE_Gather_Info__addButton_1_AddGatherInfoFile2(self, a):
-        print("d")
-
+        # a = len(self.DE_AddAll_List)
+        # tmp_DE_Gather_Info__addButton_1.clicked.connect(
+        #     lambda: self.DE_Gather_Info__addButton_1_AddGatherInfoFile2(a))
 
 
 
@@ -5848,4 +5934,4 @@ if __name__ == "__main__":
     SecondWindow.show()
     sys.exit(app.exec_())
 
-# Log +까지 load완료
+# ++되는 상황
