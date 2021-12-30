@@ -5747,7 +5747,7 @@ class Ui_SecondWindow(object):
 
     def retranslateUi(self, SecondWindow):
         _translate = QtCore.QCoreApplication.translate
-        SecondWindow.setWindowTitle(_translate("SecondWindow", "MainWindow"))
+        SecondWindow.setWindowTitle(_translate("SecondWindow", "SAIDA-P"))
         self.Digital_Evidence_Package.setText(_translate("SecondWindow", "Digital Evidence Package"))
         self.Case_Info.setText(_translate("SecondWindow", "사건 정보"))
         self.case_management_id__label.setText(_translate("SecondWindow", "사건 관리 번호:"))
@@ -5934,4 +5934,4 @@ if __name__ == "__main__":
     SecondWindow.show()
     sys.exit(app.exec_())
 
-# ++되는 상황
+# ++되는 상황.
