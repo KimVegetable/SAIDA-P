@@ -44,15 +44,6 @@ class Ui_SecondWindow(object):
         self.DE_Gather_Info_Button_List.append(list())
         self.DE_Gather_Info_Tab_Widget_List = list()
 
-        # DE 수집 정보 add , 3차원
-        self.DE_Acquisition_Info_num = 1
-        self.DE_Acquisition_Info_List = list()
-        self.DE_Acquisition_Info_List.append(list())
-
-        # DE 수집 정보 파일 리스트 add
-        self.DE_Acquisition_Info_File_num = 1
-        self.DE_Acquisition_Info_File_List = list()
-
         # DE Browse, Enter 버튼
         self.DE_Button_num = 1
         self.DE_Button_List = list()
@@ -68,11 +59,24 @@ class Ui_SecondWindow(object):
         self.DE_Other_Files_Button_List.append(list())
         self.DE_Other_Files_Tab_Widget_List = list()
 
+
+
+        # DE 수집 정보 add , 3차원
+        self.DE_Acquisition_Info_List = list()
+        self.DE_Acquisition_Info_List.append(list())
+        self.DE_Acquisition_Info_Button_List = list()
+        self.DE_Acquisition_Info_Button_List.append(list())
+        self.DE_Acquisition_Info_Tab_Widget_List = list()
+
         # DE 수집
 
         self.DE_Acquisition_Info_DEF_List = 1
         self.DE_Acquisition_Info_DEF_List = list()
         self.DE_Acquisition_Info_DEF_List.append(list())
+
+        self.DE_Acquisition_Info_DEF_Button_num = 1
+        self.DE_Acquisition_Info_DEF_Button_List = list()
+        self.DE_Acquisition_Info_DEF_Button_List.append(list())
 
 
         # DE 기타파일 파일 리스트
@@ -1715,6 +1719,7 @@ class Ui_SecondWindow(object):
         ### tabwidget 저장
         self.DE_Gather_Info_Tab_Widget_List.append(self.tabWidget_9)
         self.DE_Other_Files_Tab_Widget_List.append(self.tabWidget_7)
+        self.DE_Acquisition_Info_Tab_Widget_List.append(self.tabWidget_8)
 
 
         self.AI_Reports_file_name__lineEdit_1.setReadOnly(True)
@@ -1767,45 +1772,18 @@ class Ui_SecondWindow(object):
         tmp_list.append(self.DE_Gather_Inf_Gather_Source_Name__lineEdit_1) #25
         tmp_list.append(self.DE_Gather_Inf_Gather_Relation_Person_Type_Code___lineEdit_1) #26
 
-        # # Gather추가
-        # gather_info_list = list()
-        # gather_info_list.append(self.DE_Gather_Info_file__filebrowse__lineEdit_1)
-        # gather_info_list.append(self.DE_Gather_Info_gather_media_type__lineEdit_1)
-        # gather_info_list.append(self.DE_Gather_Info__gather_hash_type__lineEdit_1)
-        # gather_info_list.append(self.DE_Gather_Info_gather_hash__lineEdit_1)
-        # gather_info_list.append(self.DE_Gather_Info_gather_path__lineEdit_1)
-        # gather_info_list.append(self.DE_Gather_Info_gather_metadata__lineEdit_1)
-        # self.DE_Gather_Info_List[0].append(gather_info_list)
-        #
-        # tmp_list.append(self.DE_Gather_Info_file__filebrowse__lineEdit_1) #27
-        # tmp_list.append(self.DE_Gather_Info_gather_media_type__lineEdit_1)  #28
-        # tmp_list.append(self.DE_Gather_Info__gather_hash_type__lineEdit_1) #29
-        # tmp_list.append(self.DE_Gather_Info_gather_hash__lineEdit_1) #30
-        # tmp_list.append(self.DE_Gather_Info_gather_path__lineEdit_1) #31
-        # tmp_list.append(self.DE_Gather_Info_gather_metadata__lineEdit_1)  #32
+        # Acquisition_Info
+        tmp_list = list()
+        tmp_list.append(self.DE_Authentication_ID__lineEdit_1)  #
+        tmp_list.append(self.DE_Acquisition_Info_acquisition_person_name__lineEdit_1) #
+        tmp_list.append(self.DE_Acquisition_Info_acquisition_date_time__lineEdit_1) #
+        tmp_list.append(self.DE_Acquisition_Info_acquisition_location__lineEdit_1)  #
+        tmp_list.append(self.DE_Acquisition_Info_acquisition_tool__lineEdit_1) #
+        tmp_list.append(self.DE_Acquisition_Info_acquisition_tool_version__lineEdit_1) #
+        tmp_list.append(self.DE_Authentication_Person_Party_Name__lineEdit_1) #
+        self.DE_Acquisition_Info_List[0].append(tmp_list)
 
-        # # 기타파일 추가
-        # tmp_list.append(self.DE_other_files_file_browse__lineEdit_1)  #33
-        # tmp_list.append(self.DE_other_files_id__lineEdit_1) #34
-        # tmp_list.append(self.DE_other_files_type__lineEdit_1) #35
-        # tmp_list.append(self.DE_other_files_file_size__lineEdit_1) #36
-        # tmp_list.append(self.DE_other_files_file_path__lineEdit_1)  #37
-        # tmp_list.append(self.DE_other_files_file_hash_type__lineEdit_1) #38
-        # tmp_list.append(self.DE_other_files_file_hash_value__lineEdit_1) #39
-        # tmp_list.append(self.DE_other_files_file_description__lineEdit_1)
-        # tmp_list.append(self.DE_other_files_file_metadata__lineEdit_1)  #41
-
-        #수집정보
-        tmp_list.append(self.DE_Authentication_ID__lineEdit_1)  #42
-        tmp_list.append(self.DE_Acquisition_Info_acquisition_person_name__lineEdit_1) #43
-        tmp_list.append(self.DE_Acquisition_Info_acquisition_date_time__lineEdit_1) #44
-        tmp_list.append(self.DE_Acquisition_Info_acquisition_location__lineEdit_1)  # 45
-        tmp_list.append(self.DE_Acquisition_Info_acquisition_tool__lineEdit_1) #46
-        tmp_list.append(self.DE_Acquisition_Info_acquisition_tool_version__lineEdit_1) #47
-        tmp_list.append(self.DE_Authentication_Person_Party_Name__lineEdit_1) #48
-
-
-        # Acquisition 추가
+        # DEF Acquisition 추가
         tmp_list.append(self.DE_Acquisition_Info_DEF_serial_no__lineEdit_1)  #49
         tmp_list.append(self.DE_Acquisition_Info_DEF_management_id__lineEdit_1) #50
         tmp_list.append(self.DE_Acquisition_Info_DEF_digital_evidence_type__lineEdit_1)  #51
@@ -1966,15 +1944,6 @@ class Ui_SecondWindow(object):
             lambda: self.DE_Gather_Info_file__filebrowse__enterButton_1_Calculate(0, 0)
         )
 
-        # self.DE_Gather_Info_file__filebrowse__browseButton_1.clicked.connect(
-        #     lambda: self.DE_Gather_Info_file__filebrowse__browseButton_1_QFileDialog(0, 0))
-        #
-        # # DE gather에서 enter버튼 클릭하면 계산
-        # self.DE_Gather_Info_file__filebrowse__enterButton_1.clicked.connect(
-        #     lambda: self.DE_Gather_Info_file__filebrowse__enterButton_1_Calculate(0, 0))
-
-
-
         ##DE Other File에서 Browse누르면 파일 클릭하면 파일 업로드
         de_other_files_button_list = list()
         de_other_files_button_list.append(self.DE_other_files_file_browse__browseButton_1)
@@ -2008,9 +1977,9 @@ class Ui_SecondWindow(object):
         self.DE_other_files__addButton_1.clicked.connect(
             self.DE_Other_Files_AddTab)
 
-        #DE 수집에서 addTab
+        #DE Acquisition Info에서 addTab
         self.DE_Acquisition_Info__addButton_1.clicked.connect(
-            self.DE_Acquisition_Info_AddTab)
+            lambda: self.DE_Acquisition_Info_AddTab(0))
 
         # DE 수집 DEF에서 addTab
         self.DE_Acquisition_Info_DEF__addButton_1.clicked.connect(
@@ -3439,7 +3408,8 @@ class Ui_SecondWindow(object):
         tmp_DE_other_files_file_description__label_1.setText("파일 설명:")
         tmp_DE_other_files_file_metadata__label_1.setText("파일 메타데이터:")
 
-    def DE_Acquisition_Info_AddTab(self):
+    def DE_Acquisition_Info_AddTab(self, a): # tab_6
+
         tmp_tab_6 = QtWidgets.QWidget()
         tmp_tab_6.setObjectName("tab_6")
         tmp_gridLayout_29 = QtWidgets.QGridLayout(tmp_tab_6)
@@ -3674,7 +3644,7 @@ class Ui_SecondWindow(object):
         tmp_gridLayout_4.addLayout(tmp_DE_Acquisition_Info_DEF__addButton__horizontalLayout_1, 1, 0, 1, 1)
         tmp_DE_Acquisition_Info__scrollArea_1.setWidget(tmp_DE_Acquisition_Info__scrollAreaWidgetContents_1)
         tmp_gridLayout_29.addWidget(tmp_DE_Acquisition_Info__scrollArea_1, 0, 0, 1, 1)
-        self.tabWidget_8.addTab(tmp_tab_6, "Tab" + str(len(self.DE_Acquisition_Info_List) +1))
+        self.DE_Acquisition_Info_Tab_Widget_List[a].addTab(tmp_tab_6, "Tab" + str(len(self.DE_Acquisition_Info_List[a]) +1))
 
         tmp_DE_Acquisition_Info_acquisition_date_time__lineEdit_1.setPlaceholderText("ex) 2021-11-30-19:58:13.829475+09:00")
 
@@ -3686,6 +3656,9 @@ class Ui_SecondWindow(object):
         tmp_list.append(tmp_DE_Acquisition_Info_acquisition_tool__lineEdit_1)
         tmp_list.append(tmp_DE_Acquisition_Info_acquisition_tool_version__lineEdit_1)
         tmp_list.append(tmp_DE_Authentication_Person_Party_Name__lineEdit_1)
+        self.DE_Acquisition_Info_List[a].append(tmp_list)
+
+
 
         tmp_list.append(tmp_DE_Acquisition_Info_DEF_serial_no__lineEdit_1)
         tmp_list.append(tmp_DE_Acquisition_Info_DEF_management_id__lineEdit_1)
@@ -3700,16 +3673,12 @@ class Ui_SecondWindow(object):
         tmp_list.append(tmp_DE_Acquisition_Info_DEF_file_size__lineEdit_1)
         tmp_list.append(tmp_DE_Acquisition_Info_DEF__metadata__lineEdit_1)
 
-        self.DE_Acquisition_Info_List.append(tmp_list)
-
         _translate = QtCore.QCoreApplication.translate
 
         tmp_DE_Authentication_ID__label_1.setText("수집 id:")
         tmp_DE_Acquisition_Info_acquisition_person_name__label_1.setText("수집자명:")
         tmp_DE_Acquisition_Info_acquisition_date_time__label_1.setText("수집 시간:")
 
-        tmp_DE_Gather_Info_gather_datetime__lineEdit_1.setPlaceholderText(
-            _translate("SecondWindow", "ex) 2021-11-30 19:58:13.829475+09:00"))
         tmp_DE_Acquisition_Info_acquisition_date_time__lineEdit_1.setPlaceholderText(
             _translate("SecondWindow", "ex) 2021-11-30 19:58:13.829475+09:00"))
 
@@ -3932,6 +3901,8 @@ class Ui_SecondWindow(object):
         self.DE_Other_Files_List.append(list())
         self.DE_Other_Files_Button_List.append(list())
 
+        self.DE_Acquisition_Info_List.append(list())
+        self.DE_Acquisition_Info_Button_List.append(list())
 
         tmp_tab_2 = QtWidgets.QWidget()
         tmp_tab_2.setObjectName("tab_2")
@@ -4712,6 +4683,7 @@ class Ui_SecondWindow(object):
 
         self.DE_Gather_Info_Tab_Widget_List.append(tmp_tabWidget_9)
         self.DE_Other_Files_Tab_Widget_List.append(tmp_tabWidget_7)
+        self.DE_Acquisition_Info_Tab_Widget_List.append(tmp_tabWidget_8)
 
 
         tmp_list = list()
@@ -4773,14 +4745,6 @@ class Ui_SecondWindow(object):
             lambda: self.DE_Gather_Info_AddTab(tmp_len)
         )
 
-
-        # tmp_list.append(tmp_DE_Gather_Info_file__filebrowse__lineEdit_1)  # 27
-        # tmp_list.append(tmp_DE_Gather_Info_gather_media_type__lineEdit_1)  # 28
-        # tmp_list.append(tmp_DE_Gather_Info__gather_hash_type__lineEdit_1)  # 29
-        # tmp_list.append(tmp_DE_Gather_Info_gather_hash__lineEdit_1)  # 30
-        # tmp_list.append(tmp_DE_Gather_Info_gather_path__lineEdit_1)  # 31
-        # tmp_list.append(tmp_DE_Gather_Info_gather_metadata__lineEdit_1)  # 32
-
         # 기타파일 추가
         de_other_files_list = list()
         tmp_list.append(tmp_DE_other_files_file_browse__lineEdit_1)  # 33
@@ -4810,16 +4774,24 @@ class Ui_SecondWindow(object):
             lambda: self.DE_Other_Files_AddTab(tmp_len)
         )
 
-        #수집 정보 추가
-        tmp_list.append(tmp_DE_Authentication_ID__lineEdit_1)  # 42
-        tmp_list.append(tmp_DE_Acquisition_Info_acquisition_person_name__lineEdit_1)  # 43
-        tmp_list.append(tmp_DE_Acquisition_Info_acquisition_date_time__lineEdit_1)  # 44
-        tmp_list.append(tmp_DE_Acquisition_Info_acquisition_location__lineEdit_1)  # 45
-        tmp_list.append(tmp_DE_Acquisition_Info_acquisition_tool__lineEdit_1)  # 46
-        tmp_list.append(tmp_DE_Acquisition_Info_acquisition_tool_version__lineEdit_1)  # 47
-        tmp_list.append(tmp_DE_Authentication_Person_Party_Name__lineEdit_1)  # 48
+        # Acquisition Info 추가
+        de_acquisition_info_list = list()
+        de_acquisition_info_list.append(tmp_DE_Authentication_ID__lineEdit_1)  # 42
+        de_acquisition_info_list.append(tmp_DE_Acquisition_Info_acquisition_person_name__lineEdit_1)  # 43
+        de_acquisition_info_list.append(tmp_DE_Acquisition_Info_acquisition_date_time__lineEdit_1)  # 44
+        de_acquisition_info_list.append(tmp_DE_Acquisition_Info_acquisition_location__lineEdit_1)  # 45
+        de_acquisition_info_list.append(tmp_DE_Acquisition_Info_acquisition_tool__lineEdit_1)  # 46
+        de_acquisition_info_list.append(tmp_DE_Acquisition_Info_acquisition_tool_version__lineEdit_1)  # 47
+        de_acquisition_info_list.append(tmp_DE_Authentication_Person_Party_Name__lineEdit_1)  # 48
+        self.DE_Acquisition_Info_List[len(self.DE_Acquisition_Info_List)-1].append(de_acquisition_info_list)
 
-        # Acquisition 추가
+        tmp_len = len(self.DE_Acquisition_Info_List)-1
+        # [큰탭][소탭][버튼]
+        tmp_DE_Acquisition_Info__addButton_1.clicked.connect(
+            lambda: self.DE_Acquisition_Info_AddTab(tmp_len)
+        )
+
+        # Acquisition Info DEF 추가
         tmp_list.append(tmp_DE_Acquisition_Info_DEF_serial_no__lineEdit_1)  # 49
         tmp_list.append(tmp_DE_Acquisition_Info_DEF_management_id__lineEdit_1)  # 50
         tmp_list.append(tmp_DE_Acquisition_Info_DEF_digital_evidence_type__lineEdit_1)  # 51
@@ -5990,4 +5962,4 @@ if __name__ == "__main__":
     SecondWindow.show()
     sys.exit(app.exec_())
 
-# ++되는 상황!
+# 수집정보의 ++까지되는 상황
