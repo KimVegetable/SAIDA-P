@@ -1,3 +1,5 @@
+import os
+
 import os, sys
 import json
 from PyQt5 import QtCore, QtGui, QtWidgets
@@ -5,8 +7,17 @@ from PyQt5.QtWidgets import QFileDialog, QMessageBox, QApplication, QListWidget,
 from PyQt5.QtCore import Qt, QUrl
 from main import Ui_SecondWindow
 
+from PyQt5.QtGui import *
 
+# from PySide2.QtGui import QIcon
 
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
 
 class Ui_MainWindow(object):
 
@@ -71,7 +82,10 @@ class Ui_MainWindow(object):
 
     def openWindow(self, MainWindow):
         if self.lineEdit.text() == '':
+
+            # self.ErrorMessage.setWindowIcon(QIcon(resource_path('marine.png')))
             self.ErrorMessage("경로를 입력해주세요.")
+
         elif os.path.exists(self.lineEdit.text()):
             self.ErrorMessage("해당 경로에 파일이 존재합니다.")
         else:
@@ -123,8 +137,12 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+
+    # MainWindow.setWindowIcon(QIcon(resource_path('Main/marine.png')))
+    MainWindow.setWindowIcon(QIcon(resource_path('marine.png')))
+
     MainWindow.show()
 
     sys.exit(app.exec_())
 
-
+# 윈도우 창을 여러개 만들어 봅시다
