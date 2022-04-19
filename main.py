@@ -154,151 +154,246 @@ class Ui_SecondWindow(object):
         self.window.show()
 
     def tree_maker(self):
-        thing = self.Tree_Button.text()
+
+        #통째로 시작
 
         _translate = QtCore.QCoreApplication.translate
 
         self.ui.treeWidget.topLevelItem(0).setText(0, _translate("ThirdWindow", "Digital Evidence Package"))
         self.ui.treeWidget.topLevelItem(0).child(0).setText(0, _translate("ThirdWindow", "Case Info"))
         self.ui.treeWidget.topLevelItem(0).child(0).child(0).setText(0,_translate("ThirdWindow", "case_management_id: " + self.CI_List[0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(1).setText(0, _translate("ThirdWindow", "agency_case_no."     +   self.CI_List[1].text()           ))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(2).setText(0,_translate("ThirdWindow", "agency_organization_code" + self.CI_List[2].text()     ))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(3).setText(0,_translate("ThirdWindow", "agency_organization_name" + self.CI_List[3].text()))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(4).setText(0, _translate("ThirdWindow",   "agency_organization_party_name" + self.CI_List[4].text()))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(5).setText(0, _translate("ThirdWindow", "contents_of_request" + self.CI_List[5].text()))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(6).setText(0, _translate("ThirdWindow", "case_summary" + self.CI_List[6].text()))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(7).setText(0, _translate("ThirdWindow", "case_description" + self.CI_List[7].text()))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(8).setText(0, _translate("ThirdWindow", "case_datetime" + self.CI_List[8].text()))
-        self.ui.treeWidget.topLevelItem(0).child(0).child(9).setText(0, _translate("ThirdWindow", "ordering_datetime" + self.CI_List[9].text()))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(1).setText(0, _translate("ThirdWindow", "agency_case_no.: " +   self.CI_List[1].text()           ))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(2).setText(0,_translate("ThirdWindow", "agency_organization_code: " + self.CI_List[2].text()     ))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(3).setText(0,_translate("ThirdWindow", "agency_organization_name: " + self.CI_List[3].text()))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(4).setText(0, _translate("ThirdWindow",   "agency_organization_party_name: " + self.CI_List[4].text()))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(5).setText(0, _translate("ThirdWindow", "contents_of_request: " + self.CI_List[5].text()))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(6).setText(0, _translate("ThirdWindow", "case_summary: " + self.CI_List[6].text()))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(7).setText(0, _translate("ThirdWindow", "case_description: " + self.CI_List[7].text()))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(8).setText(0, _translate("ThirdWindow", "case_datetime: " + self.CI_List[8].text()))
+        self.ui.treeWidget.topLevelItem(0).child(0).child(9).setText(0, _translate("ThirdWindow", "ordering_datetime: " + self.CI_List[9].text()))
         self.ui.treeWidget.topLevelItem(0).child(1).setText(0, _translate("ThirdWindow", "Digital Evidences"))
         self.ui.treeWidget.topLevelItem(0).child(1).child(0).setText(0, _translate("ThirdWindow", "0"))
         self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).setText(0, _translate("ThirdWindow", "Vessel Info"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(0).setText(0, _translate("ThirdWindow", "vesel_name" + self.DE_AddAll_List[0][0].text()  ))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(1).setText(0, _translate("ThirdWindow","vessel_management_id" + self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(2).setText(0, _translate("ThirdWindow",  "vessel_MMSI"+ self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(3).setText(0, _translate("ThirdWindow",  "vessel_callsign"+ self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(4).setText(0, _translate("ThirdWindow",   "vessel_IMO" + self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(5).setText(0, _translate("ThirdWindow",              "vessel_MRN"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(6).setText(0, _translate("ThirdWindow",                                          "vessel_tonnage" + self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(7).setText(0, _translate("ThirdWindow",  "vessel_length" + self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(8).setText(0, _translate("ThirdWindow",                                "total_number_of_equipment_with_track" + self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(9).setText(0, _translate("ThirdWindow",                                "vessel_type" + self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).setText(0, _translate("ThirdWindow",                       "Marine Electronics Info" + self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(0).setText(0, _translate("ThirdWindow",                                "device_management_id" + self.DE_AddAll_List[0][0].text()))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(1).setText(0, _translate("ThirdWindow",                                "device_type"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(2).setText(0, _translate("ThirdWindow",                                "device_manufacturer"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(3).setText(0, _translate("ThirdWindow",                                "device_model_name"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(4).setText(0, _translate("ThirdWindow",                                "device_model_serial_number"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(5).setText(0, _translate("ThirdWindow",                                "device_os_firmware"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(6).setText(0, _translate("ThirdWindow",                                "device_description"))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(0).setText(0, _translate("ThirdWindow", "vesel_name: " + self.DE_AddAll_List[0][0].text()  ))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(1).setText(0, _translate("ThirdWindow","vessel_management_id: " + self.DE_AddAll_List[0][1].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(2).setText(0, _translate("ThirdWindow",  "vessel_MMSI: " + self.DE_AddAll_List[0][2].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(3).setText(0, _translate("ThirdWindow",  "vessel_callsign: " + self.DE_AddAll_List[0][3].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(4).setText(0, _translate("ThirdWindow",   "vessel_IMO: " + self.DE_AddAll_List[0][4].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(5).setText(0, _translate("ThirdWindow", "vessel_MRN: " + self.DE_AddAll_List[0][5].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(6).setText(0, _translate("ThirdWindow", "vessel_tonnage: " + self.DE_AddAll_List[0][6].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(7).setText(0, _translate("ThirdWindow",  "vessel_length: " + self.DE_AddAll_List[0][7].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(8).setText(0, _translate("ThirdWindow",  "total_number_of_equipment_with_track: " + self.DE_AddAll_List[0][8].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(0).child(9).setText(0, _translate("ThirdWindow", "vessel_type: " + self.DE_AddAll_List[0][9].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).setText(0, _translate("ThirdWindow",  "Marine Electronics Info" ))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(0).setText(0, _translate("ThirdWindow", "device_management_id: " + self.DE_AddAll_List[0][10].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(1).setText(0, _translate("ThirdWindow", "device_type: " + self.DE_AddAll_List[0][11].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(2).setText(0, _translate("ThirdWindow", "device_manufacturer: " + self.DE_AddAll_List[0][12].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(3).setText(0, _translate("ThirdWindow", "device_model_name: " + self.DE_AddAll_List[0][13].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(4).setText(0, _translate("ThirdWindow", "device_model_serial_number: " + self.DE_AddAll_List[0][14].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(5).setText(0, _translate("ThirdWindow", "device_os_firmware: " + self.DE_AddAll_List[0][15].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(1).child(6).setText(0, _translate("ThirdWindow", "device_description: " + self.DE_AddAll_List[0][16].text()))
         self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).setText(0, _translate("ThirdWindow", "Gather Info"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(0).setText(0, _translate("ThirdWindow",                                                                                                  "gather_management_id"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(1).setText(0, _translate("ThirdWindow",                                                                                                  "gather_location"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(2).setText(0, _translate("ThirdWindow",                                                                                                  "gather_organization_party_name"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(3).setText(0, _translate("ThirdWindow",                                                                                                  "gather_person_name"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(4).setText(0, _translate("ThirdWindow",                                                                                                  "gather_datetime"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(5).setText(0, _translate("ThirdWindow",                                                                                                  "gather_person_agency"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(6).setText(0, _translate("ThirdWindow",                                                                                                  "gather_person_rank"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(7).setText(0, _translate("ThirdWindow",                                                                                                  "gather_organization_code"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(8).setText(0, _translate("ThirdWindow",                                                                                                  "submitter_name"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(9).setText(0, _translate("ThirdWindow",                                                                                                  "gather_source_name"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(10).setText(0, _translate("ThirdWindow",                                                                                                   "gather_relation_person_type_code"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).setText(0, _translate("ThirdWindow",                                                                                                   "Gather Info Media File"))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(0).setText(0, _translate("ThirdWindow",  "gather_management_id: " + self.DE_AddAll_List[0][17].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(1).setText(0, _translate("ThirdWindow",  "gather_location: " + self.DE_AddAll_List[0][18].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(2).setText(0, _translate("ThirdWindow",  "gather_organization_party_name: " + self.DE_AddAll_List[0][19].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(3).setText(0, _translate("ThirdWindow",  "gather_person_name: " + self.DE_AddAll_List[0][20].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(4).setText(0, _translate("ThirdWindow",  "gather_datetime: " + self.DE_AddAll_List[0][21].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(5).setText(0, _translate("ThirdWindow",  "gather_person_agency: " + self.DE_AddAll_List[0][22].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(6).setText(0, _translate("ThirdWindow",  "gather_person_rank: " + self.DE_AddAll_List[0][23].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(7).setText(0, _translate("ThirdWindow",  "gather_organization_code: " + self.DE_AddAll_List[0][24].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(8).setText(0, _translate("ThirdWindow",  "submitter_name: " + self.DE_AddAll_List[0][25].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(9).setText(0, _translate("ThirdWindow",  "gather_source_name: " + self.DE_AddAll_List[0][26].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(10).setText(0, _translate("ThirdWindow",   "gather_relation_person_type_code: " + self.DE_AddAll_List[0][27].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).setText(0, _translate("ThirdWindow",   "Gather Info Media File"))
         self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).setText(0,      _translate("ThirdWindow","0"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(0).setText(0, _translate(            "ThirdWindow", "gather_media_type"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(1).setText(0, _translate(            "ThirdWindow", "gather_hash_type"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(2).setText(0, _translate(            "ThirdWindow", "gather_hash"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(3).setText(0, _translate(            "ThirdWindow", "gather_path"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(4).setText(0, _translate(            "ThirdWindow", "gather_file_size"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(5).setText(0, _translate(            "ThirdWindow", "gather_metadata"))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(0).setText(0, _translate( "ThirdWindow", "gather_media_type: " + self.DE_AddAll_List[0][28].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(1).setText(0, _translate( "ThirdWindow", "gather_hash_type: " + self.DE_AddAll_List[0][29].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(2).setText(0, _translate( "ThirdWindow", "gather_hash: " + self.DE_AddAll_List[0][30].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(3).setText(0, _translate( "ThirdWindow", "gather_path: " + self.DE_AddAll_List[0][31].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(4).setText(0, _translate( "ThirdWindow", "gather_file_size: " + self.DE_AddAll_List[0][32].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(2).child(11).child(0).child(5).setText(0, _translate( "ThirdWindow", "gather_metadata: " + self.DE_AddAll_List[0][33].text()))
         self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).setText(0, _translate("ThirdWindow", "Other Files"))
         self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).setText(0, _translate("ThirdWindow", "0"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(0).setText(0,                                                                                            _translate("ThirdWindow","Other_Files_id"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(1).setText(0,                            _translate("ThirdWindow",                                                                                                        "Other_Files_type"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(2).setText(0,                                  _translate("ThirdWindow",                                                                                                        "Other_Files_size"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(3).setText(0,                                            _translate("ThirdWindow",                                                                                                        "Other_Files_path"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(4).setText(0,                                    _translate("ThirdWindow",                                                                                                        "Other_Files_hash_type"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(5).setText(0,                       _translate("ThirdWindow",                                                                                                        "Other_Files_hash_value"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(6).setText(0,                          _translate("ThirdWindow",                                                                                                        "Other_Files_file_description"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(7).setText(0,                           _translate("ThirdWindow",                                                                                                        "Other_Files_file_metadata"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).setText(0,                                                                           _translate("ThirdWindow", "Authentication"))
+        #34는 file_browse_lineEdit이라 스킵
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(0).setText(0, _translate("ThirdWindow","other_files_id: " + self.DE_AddAll_List[0][35].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(1).setText(0, _translate("ThirdWindow",  "other_files_type: " + self.DE_AddAll_List[0][36].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(2).setText(0, _translate("ThirdWindow",  "other_files_size: " + self.DE_AddAll_List[0][37].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(3).setText(0, _translate("ThirdWindow", "other_files_path: " + self.DE_AddAll_List[0][38].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(4).setText(0, _translate("ThirdWindow", "other_files_hash_type: " + self.DE_AddAll_List[0][39].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(5).setText(0, _translate("ThirdWindow",  "other_files_hash_value: " + self.DE_AddAll_List[0][40].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(6).setText(0, _translate("ThirdWindow",  "other_files_file_description: " + self.DE_AddAll_List[0][41].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(3).child(0).child(7).setText(0, _translate("ThirdWindow",  "other_files_file_metadata: " + self.DE_AddAll_List[0][42].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).setText(0,  _translate("ThirdWindow", "Authentication"))
         self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).setText(0, _translate("ThirdWindow", "0"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(0).setText(0,                              _translate("ThirdWindow",                                                                                                        "authentication_management_id"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(1).setText(0,                            _translate("ThirdWindow",                                                                                                        "authentication_person_name"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(2).setText(0,                     _translate("ThirdWindow",                                                                                                        "authentication_date_time"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(3).setText(0,                         _translate("ThirdWindow",                                                                                                        "authentication_location"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(4).setText(0,                            _translate("ThirdWindow",                                                                                                        "authentication_tool"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(5).setText(0,                               _translate("ThirdWindow",                                                                                                        "authentication_tool_version"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(6).setText(0,                              _translate("ThirdWindow",                                                                                                        "authentication_person_party_name"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).setText(0,                               _translate("ThirdWindow",                                                                                                        "Digital Evidence Files"))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(0).setText(0,          _translate("ThirdWindow",            "authentication_management_id: " + self.DE_AddAll_List[0][43].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(1).setText(0,        _translate("ThirdWindow",            "authentication_person_name: " + self.DE_AddAll_List[0][44].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(2).setText(0, _translate("ThirdWindow",            "authentication_date_time: " + self.DE_AddAll_List[0][45].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(3).setText(0,     _translate("ThirdWindow",            "authentication_location: " + self.DE_AddAll_List[0][46].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(4).setText(0,        _translate("ThirdWindow",            "authentication_tool: " + self.DE_AddAll_List[0][47].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(5).setText(0,           _translate("ThirdWindow",            "authentication_tool_version: " + self.DE_AddAll_List[0][48].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(6).setText(0,          _translate("ThirdWindow",            "authentication_person_party_name: " + self.DE_AddAll_List[0][49].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).setText(0,           _translate("ThirdWindow",            "Digital Evidence Files"))
         self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).setText(0, _translate(            "ThirdWindow", "0"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(0).setText(0,             _translate(         "ThirdWindow",                                                                                                                   "serial_no"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(1).setText(0,       _translate(      "ThirdWindow",                                    "digital_evidence_management_id"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(2).setText(0,                    _translate(                                                                                              "ThirdWindow","digital_evidence_type"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(3).setText(0,_translate( "ThirdWindow",                         "evidences_gathering_type"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(4).setText(0,       _translate(                    "ThirdWindow",                                                                                                                 "gather_management_id"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(5).setText(0,                                    _translate(                                                                                                                   "ThirdWindow",                                                                                 "file_name"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(6).setText(0,                                            _translate(                                                                                                                   "ThirdWindow",                                                                                                                   "file_path"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(7).setText(0,                                         _translate(                                                                                                                   "ThirdWindow",                                                                                                                   "hash_type"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(8).setText(0,    _translate(             "ThirdWindow",                                                                                                                   "hash_value"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(9).setText(0,_translate(  "ThirdWindow",                                                                                                                   "sector_size"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(10).setText(0,                                              _translate(                                                                                                                    "ThirdWindow",                                                                                                                    "file_size"))
-        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(11).setText(0,      _translate(                                  "ThirdWindow",                                                                                                                    "metadata"))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(0).setText(0,_translate(         "ThirdWindow",  "serial_no: " + self.DE_AddAll_List[0][50].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(1).setText(0,_translate(      "ThirdWindow", "digital_evidence_management_id: " + self.DE_AddAll_List[0][51].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(2).setText(0,  _translate(     "ThirdWindow","digital_evidence_type: " + self.DE_AddAll_List[0][52].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(3).setText(0,_translate( "ThirdWindow",     "evidences_gathering_type: " + self.DE_AddAll_List[0][53].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(4).setText(0,  _translate(  "ThirdWindow",  "gather_management_id: " + self.DE_AddAll_List[0][54].text()))
+        #55는 file_browse_lineEdit이라 스킵
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(5).setText(0,  _translate(   "ThirdWindow", "file_name: " + self.DE_AddAll_List[0][56].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(6).setText(0,   _translate(   "ThirdWindow",    "file_path: " + self.DE_AddAll_List[0][57].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(7).setText(0,_translate(   "ThirdWindow",    "hash_type: " + self.DE_AddAll_List[0][58].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(8).setText(0,    _translate("ThirdWindow",    "hash_value: " + self.DE_AddAll_List[0][59].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(9).setText(0,_translate(  "ThirdWindow",    "sector_size: " + self.DE_AddAll_List[0][60].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(10).setText(0, _translate(  "ThirdWindow",     "file_size: " + self.DE_AddAll_List[0][61].text()))
+        self.ui.treeWidget.topLevelItem(0).child(1).child(0).child(4).child(0).child(7).child(0).child(11).setText(0, _translate( "ThirdWindow",     "metadata: " + self.DE_AddAll_List[0][62].text()))
         self.ui.treeWidget.topLevelItem(0).child(2).setText(0, _translate("ThirdWindow", "Analysis Info"))
         self.ui.treeWidget.topLevelItem(0).child(2).child(0).setText(0, _translate("ThirdWindow", "Reports"))
         self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).setText(0, _translate("ThirdWindow", "0"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(0).setText(0, _translate("ThirdWindow", "id"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(1).setText(0,                                                                                    _translate("ThirdWindow", "type"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(2).setText(0, _translate("ThirdWindow",                                                                                                  "subtype"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(3).setText(0, _translate("ThirdWindow",                                                                                                  "equipment_management_id"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(4).setText(0, _translate("ThirdWindow",                                                                                                  "submission_agency"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(5).setText(0, _translate("ThirdWindow",                                                                                                  "report_creation_datetime"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(6).setText(0, _translate("ThirdWindow",                                                                                                  "division_name_of_report_maker"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(7).setText(0, _translate("ThirdWindow",                                                                                                  "team_name_of_report_maker"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(8).setText(0, _translate("ThirdWindow",                                                                                                  "file_name"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(9).setText(0, _translate("ThirdWindow",                                                                                                  "file_size"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(10).setText(0, _translate("ThirdWindow",                                                                                                   "file_path"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(11).setText(0, _translate("ThirdWindow",                                                                                                   "file_creation_datetime"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(12).setText(0, _translate("ThirdWindow",                                                                                                   "file_description"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(13).setText(0, _translate("ThirdWindow",                                                                                                   "hash_type"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(14).setText(0, _translate("ThirdWindow",                                                                                                   "hash_value"))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(0).setText(0, _translate("ThirdWindow", "id: " + self.AIReports_List[0][0].text()   ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(1).setText(0,  _translate("ThirdWindow", "type: " + self.AIReports_List[0][1].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(2).setText(0, _translate("ThirdWindow",  "subtype: " + self.AIReports_List[0][2].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(3).setText(0, _translate("ThirdWindow",  "equipment_management_id: " + self.AIReports_List[0][3].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(4).setText(0, _translate("ThirdWindow",  "submission_agency: " + self.AIReports_List[0][4].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(5).setText(0, _translate("ThirdWindow",  "report_creation_datetime: " + self.AIReports_List[0][5].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(6).setText(0, _translate("ThirdWindow",  "division_name_of_report_maker: " + self.AIReports_List[0][6].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(7).setText(0, _translate("ThirdWindow",  "team_name_of_report_maker: " + self.AIReports_List[0][7].text() ))
+        #8은 browse_lineEdit이라 스킵
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(8).setText(0, _translate("ThirdWindow",  "file_name: " + self.AIReports_List[0][9].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(9).setText(0, _translate("ThirdWindow",  "file_size: " + self.AIReports_List[0][10].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(10).setText(0, _translate("ThirdWindow",   "file_path: " + self.AIReports_List[0][11].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(11).setText(0, _translate("ThirdWindow",   "file_creation_datetime: " + self.AIReports_List[0][12].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(12).setText(0, _translate("ThirdWindow",   "file_description: " + self.AIReports_List[0][13].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(13).setText(0, _translate("ThirdWindow",   "hash_type: " + self.AIReports_List[0][14].text() ))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(14).setText(0, _translate("ThirdWindow",   "hash_value: " + self.AIReports_List[0][15].text() ))
         self.ui.treeWidget.topLevelItem(0).child(2).child(1).setText(0, _translate("ThirdWindow", "Equipment Traces"))
         self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).setText(0, _translate("ThirdWindow", "0"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(0).setText(0, _translate("ThirdWindow", "id"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(1).setText(0,                                                                                    _translate("ThirdWindow", "type"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(2).setText(0, _translate("ThirdWindow",                                                                                                  "description"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(3).setText(0, _translate("ThirdWindow",                                                                                                  "equipment_traces_management_id"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(4).setText(0, _translate("ThirdWindow",                                                                                                  "vessel_id"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(5).setText(0, _translate("ThirdWindow",                                                                                                  "evidence_id"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(6).setText(0, _translate("ThirdWindow",                                                                                                  "power_on_time"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(7).setText(0, _translate("ThirdWindow",                                                                                                  "track_extraction_description"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(8).setText(0, _translate("ThirdWindow",                                                                                                  "system_info_description"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(9).setText(0, _translate("ThirdWindow",                                                                                                  "operation_status"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(10).setText(0, _translate("ThirdWindow",                                                                                                   "power_off_time"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(11).setText(0, _translate("ThirdWindow",                                                                                                   "track_recording_period"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(12).setText(0, _translate("ThirdWindow",                                                                                                   "track_deletion_trace"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(13).setText(0, _translate("ThirdWindow",                                                                                                   "trace_notes"))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(0).setText(0, _translate("ThirdWindow", "id: " + self.AI_EquipmentTraces_List[0][0].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(1).setText(0,  _translate("ThirdWindow", "type: " + self.AI_EquipmentTraces_List[0][1].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(2).setText(0, _translate("ThirdWindow",  "description: " + self.AI_EquipmentTraces_List[0][2].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(3).setText(0, _translate("ThirdWindow",  "equipment_traces_management_id: " + self.AI_EquipmentTraces_List[0][3].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(4).setText(0, _translate("ThirdWindow",  "vessel_id: " + self.AI_EquipmentTraces_List[0][4].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(5).setText(0, _translate("ThirdWindow",  "evidence_id: " + self.AI_EquipmentTraces_List[0][5].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(6).setText(0, _translate("ThirdWindow",  "power_on_time: " + self.AI_EquipmentTraces_List[0][6].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(7).setText(0, _translate("ThirdWindow",  "track_extraction_description: " + self.AI_EquipmentTraces_List[0][7].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(8).setText(0, _translate("ThirdWindow",  "system_info_description: " + self.AI_EquipmentTraces_List[0][8].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(9).setText(0, _translate("ThirdWindow",  "operation_status: " + self.AI_EquipmentTraces_List[0][9].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(10).setText(0, _translate("ThirdWindow",   "power_off_time: " + self.AI_EquipmentTraces_List[0][10].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(11).setText(0, _translate("ThirdWindow",   "track_recording_period: " + self.AI_EquipmentTraces_List[0][11].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(12).setText(0, _translate("ThirdWindow",   "track_deletion_trace: " + self.AI_EquipmentTraces_List[0][12].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(1).child(0).child(13).setText(0, _translate("ThirdWindow",   "trace_notes: " + self.AI_EquipmentTraces_List[0][13].text()))
         self.ui.treeWidget.topLevelItem(0).child(2).child(2).setText(0, _translate("ThirdWindow", "Other Files"))
         self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).setText(0, _translate("ThirdWindow", "0"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(0).setText(0, _translate("ThirdWindow", "id"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(1).setText(0,                                                                                    _translate("ThirdWindow", "type"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(2).setText(0, _translate("ThirdWindow",                                                                                                  "file_size"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(3).setText(0, _translate("ThirdWindow",                                                                                                  "file_path"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(4).setText(0, _translate("ThirdWindow",                                                                                                  "file_hash_type"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(5).setText(0, _translate("ThirdWindow",                                                                                                  "file_hash_value"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(6).setText(0, _translate("ThirdWindow",                                                                                                  "file_description"))
-        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(7).setText(0, _translate("ThirdWindow",                                                                                                  "file_metadata"))
+        #0은 file_browse_lineEdit이라 스킵
+        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(0).setText(0, _translate("ThirdWindow", "id: " + self.AI_List[0][1].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(1).setText(0, _translate("ThirdWindow", "type: " + self.AI_List[0][2].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(2).setText(0, _translate("ThirdWindow",  "file_size: " + self.AI_List[0][3].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(3).setText(0, _translate("ThirdWindow",  "file_path: " + self.AI_List[0][4].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(4).setText(0, _translate("ThirdWindow",  "file_hash_type: " + self.AI_List[0][5].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(5).setText(0, _translate("ThirdWindow",  "file_hash_value: " + self.AI_List[0][6].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(6).setText(0, _translate("ThirdWindow",  "file_description: " + self.AI_List[0][7].text()))
+        self.ui.treeWidget.topLevelItem(0).child(2).child(2).child(0).child(7).setText(0, _translate("ThirdWindow",  "file_metadata: " + self.AI_List[0][8].text()))
         self.ui.treeWidget.topLevelItem(1).setText(0, _translate("ThirdWindow", "Log"))
         self.ui.treeWidget.topLevelItem(1).child(0).setText(0, _translate("ThirdWindow", "0"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(0).setText(0, _translate("ThirdWindow", "log_management_id"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(1).setText(0, _translate("ThirdWindow",                                                                                "log_history_start_date_time"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(2).setText(0, _translate("ThirdWindow",                                                                                "log_history_end_date_time"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(3).setText(0, _translate("ThirdWindow", "log_type"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(4).setText(0, _translate("ThirdWindow", "log_description"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(5).setText(0,                                                                  _translate("ThirdWindow", "devision_name_of_logger"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(6).setText(0, _translate("ThirdWindow", "team_name_of_logger"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(7).setText(0, _translate("ThirdWindow", "rank_of_logger"))
-        self.ui.treeWidget.topLevelItem(1).child(0).child(8).setText(0, _translate("ThirdWindow", "name_of_logger"))
+        self.ui.treeWidget.topLevelItem(1).child(0).child(0).setText(0, _translate("ThirdWindow", "log_management_id: " + self.Log_List[0][0].text()))
+        self.ui.treeWidget.topLevelItem(1).child(0).child(1).setText(0, _translate("ThirdWindow","log_history_start_date_time: " + self.Log_List[0][1].text()))
+        #2는 now라서 스킵
+        self.ui.treeWidget.topLevelItem(1).child(0).child(2).setText(0, _translate("ThirdWindow","log_history_end_date_time: " + self.Log_List[0][3].text()))
+        self.ui.treeWidget.topLevelItem(1).child(0).child(3).setText(0, _translate("ThirdWindow", "log_type: " + self.Log_List[0][4].text()))
+        self.ui.treeWidget.topLevelItem(1).child(0).child(4).setText(0, _translate("ThirdWindow", "log_description: " + self.Log_List[0][5].text()))
+        self.ui.treeWidget.topLevelItem(1).child(0).child(5).setText(0, _translate("ThirdWindow", "devision_name_of_logger: " + self.Log_List[0][6].text()))
+        self.ui.treeWidget.topLevelItem(1).child(0).child(6).setText(0, _translate("ThirdWindow", "team_name_of_logger: " + self.Log_List[0][7].text()))
+        self.ui.treeWidget.topLevelItem(1).child(0).child(7).setText(0, _translate("ThirdWindow", "rank_of_logger: " + self.Log_List[0][8].text()))
+        self.ui.treeWidget.topLevelItem(1).child(0).child(8).setText(0, _translate("ThirdWindow", "name_of_logger: " + self.Log_List[0][9].text()))
+        ##맨처음 시작 통째로 끝
+
+        #if AI Report가 늘어나는 경우
+        if len(self.AIReports_List) > 1:
+
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).setText(0, _translate("ThirdWindow", "0"))
+            # self.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(0).setText(0,_translate("ThirdWindow", "id"))
+
+            self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(1).setText(0, _translate("ThirdWindow", "1"))
+                                                                #child(n)
+            self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(1).child(0).setText(0, _translate("ThirdWindow","id: " +self.AIReports_List[1][0].text()))
+                                                                ##child(n)
+
+            #setup ui에도 뭔가 추가 되는듯
+
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(1).setText(0, _translate("ThirdWindow",
+            #                                                                                              "type: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  1].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(2).setText(0, _translate("ThirdWindow",
+            #                                                                                              "subtype: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  2].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(3).setText(0, _translate("ThirdWindow",
+            #                                                                                              "equipment_management_id: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  3].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(4).setText(0, _translate("ThirdWindow",
+            #                                                                                              "submission_agency: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  4].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(5).setText(0, _translate("ThirdWindow",
+            #                                                                                              "report_creation_datetime: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  5].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(6).setText(0, _translate("ThirdWindow",
+            #                                                                                              "division_name_of_report_maker: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  6].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(7).setText(0, _translate("ThirdWindow",
+            #                                                                                              "team_name_of_report_maker: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  7].text()))
+            # # 8은 browse_lineEdit이라 스킵
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(8).setText(0, _translate("ThirdWindow",
+            #                                                                                              "file_name: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  9].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(9).setText(0, _translate("ThirdWindow",
+            #                                                                                              "file_size: " +
+            #                                                                                              self.AIReports_List[
+            #                                                                                                  0][
+            #                                                                                                  10].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(10).setText(0, _translate("ThirdWindow",
+            #                                                                                               "file_path: " +
+            #                                                                                               self.AIReports_List[
+            #                                                                                                   0][
+            #                                                                                                   11].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(11).setText(0, _translate("ThirdWindow",
+            #                                                                                               "file_creation_datetime: " +
+            #                                                                                               self.AIReports_List[
+            #                                                                                                   0][
+            #                                                                                                   12].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(12).setText(0, _translate("ThirdWindow",
+            #                                                                                               "file_description: " +
+            #                                                                                               self.AIReports_List[
+            #                                                                                                   0][
+            #                                                                                                   13].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(13).setText(0, _translate("ThirdWindow",
+            #                                                                                               "hash_type: " +
+            #                                                                                               self.AIReports_List[
+            #                                                                                                   0][
+            #                                                                                                   14].text()))
+            # self.ui.treeWidget.topLevelItem(0).child(2).child(0).child(0).child(14).setText(0, _translate("ThirdWindow",
+            #                                                                                               "hash_value: " +
+            #                                                                                               self.AIReports_List[
+            #                                                                                                   0][
+            #                                                                                                   15].text()))
+        else:
+            pass
+
 
     def setupUi(self, SecondWindow):
         SecondWindow.setObjectName("SecondWindow")
@@ -2102,22 +2197,22 @@ class Ui_SecondWindow(object):
 
         # AI other files + 누르면 add
         tmp_list = list()
-        tmp_list.append(self.AI_Reports_id__lineEdit_1)
-        tmp_list.append(self.AI_Reports_type__lineEdit_1)
-        tmp_list.append(self.AI_Reports_subtype__lineEdit_1)
-        tmp_list.append(self.AI_Reports_mgmt_id__lineEdit_1)
-        tmp_list.append(self.AI_Reports_submission_agency__lineEdit_1)
-        tmp_list.append(self.AI_Reports_reprot_creation_datetime__lineEdit_1)
-        tmp_list.append(self.AI_Reports_division_name_of_report_maker__lineEdit_1)
-        tmp_list.append(self.AI_Reports_team_name_of_report_maker__lineEdit_1)
-        tmp_list.append(self.AI_Reports_file_info__lineEdit_1)
-        tmp_list.append(self.AI_Reports_file_name__lineEdit_1)
-        tmp_list.append(self.AI_Reports_file_size__lineEdit_1)
-        tmp_list.append(self.AI_Reports_file_path__lineEdit_1)
-        tmp_list.append(self.AI_Reports_file_creation_datetime__lineEdit_1)
-        tmp_list.append(self.AI_Reports_file_description__lineEdit_1)
-        tmp_list.append(self.AI_Reports_file_hash_type__lineEdit_1)
-        tmp_list.append(self.AI_Reports_file_hash_value__lineEdit_1)
+        tmp_list.append(self.AI_Reports_id__lineEdit_1) #0
+        tmp_list.append(self.AI_Reports_type__lineEdit_1) #1
+        tmp_list.append(self.AI_Reports_subtype__lineEdit_1)  #2
+        tmp_list.append(self.AI_Reports_mgmt_id__lineEdit_1) #3
+        tmp_list.append(self.AI_Reports_submission_agency__lineEdit_1) #4
+        tmp_list.append(self.AI_Reports_reprot_creation_datetime__lineEdit_1) #5
+        tmp_list.append(self.AI_Reports_division_name_of_report_maker__lineEdit_1) #6
+        tmp_list.append(self.AI_Reports_team_name_of_report_maker__lineEdit_1) #7
+        tmp_list.append(self.AI_Reports_file_info__lineEdit_1) #8
+        tmp_list.append(self.AI_Reports_file_name__lineEdit_1) #9
+        tmp_list.append(self.AI_Reports_file_size__lineEdit_1) #10
+        tmp_list.append(self.AI_Reports_file_path__lineEdit_1) #11
+        tmp_list.append(self.AI_Reports_file_creation_datetime__lineEdit_1) #12
+        tmp_list.append(self.AI_Reports_file_description__lineEdit_1) #13
+        tmp_list.append(self.AI_Reports_file_hash_type__lineEdit_1) #14
+        tmp_list.append(self.AI_Reports_file_hash_value__lineEdit_1) #15
         self.AIReports_List.append(tmp_list)
 
         tmp_list = list()
@@ -2127,15 +2222,15 @@ class Ui_SecondWindow(object):
 
         # AI other files +누르면  add
         tmp_list = list()
-        tmp_list.append(self.AI_Other_Files_file_browse__lineEdit_1)
-        tmp_list.append(self.AI_Other_Files_id__lineEdit_1)
-        tmp_list.append(self.AI_Other_Files_type__lineEdit_1)
-        tmp_list.append(self.AI_Other_Files_file_size__lineEdit_1)
-        tmp_list.append(self.AI_Other_Files_file_path__lineEdit_1)
-        tmp_list.append(self.AI_Other_Files_file_hash_type__lineEdit_1)
-        tmp_list.append(self.AI_Other_Files_file_hash_value__lineEdit_1)
-        tmp_list.append(self.AI_Other_Files_file_description__lineEdit_1)
-        tmp_list.append(self.AI_Other_Files_file_metadata__lineEdit_1)
+        tmp_list.append(self.AI_Other_Files_file_browse__lineEdit_1) #0
+        tmp_list.append(self.AI_Other_Files_id__lineEdit_1) #1
+        tmp_list.append(self.AI_Other_Files_type__lineEdit_1) #2
+        tmp_list.append(self.AI_Other_Files_file_size__lineEdit_1) #3
+        tmp_list.append(self.AI_Other_Files_file_path__lineEdit_1) #4
+        tmp_list.append(self.AI_Other_Files_file_hash_type__lineEdit_1) #5
+        tmp_list.append(self.AI_Other_Files_file_hash_value__lineEdit_1) #6
+        tmp_list.append(self.AI_Other_Files_file_description__lineEdit_1) #7
+        tmp_list.append(self.AI_Other_Files_file_metadata__lineEdit_1) #8
         self.AI_List.append(tmp_list)
 
         tmp_list = list()
@@ -2145,20 +2240,20 @@ class Ui_SecondWindow(object):
 
         ##EquipmentTraces
         tmp_list = list()
-        tmp_list.append(self.AI_EquipmentTraces_id__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_type__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_description__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_mgmt_id__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_vessel_id__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_evidence_id__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_system_power_on_time__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_track_extractopm_description__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_system_description__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_system_operation_status__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_system_power_off_time__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_track_recording_period__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_track_deletion_trace__lineEdit_1)
-        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_user_trace_notes__lineEdit_1)
+        tmp_list.append(self.AI_EquipmentTraces_id__lineEdit_1) #0
+        tmp_list.append(self.AI_EquipmentTraces_type__lineEdit_1) #1
+        tmp_list.append(self.AI_EquipmentTraces_description__lineEdit_1) #2
+        tmp_list.append(self.AI_EquipmentTraces_mgmt_id__lineEdit_1) #3
+        tmp_list.append(self.AI_EquipmentTraces_vessel_id__lineEdit_1) #4
+        tmp_list.append(self.AI_EquipmentTraces_evidence_id__lineEdit_1) #5
+        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_system_power_on_time__lineEdit_1) #6
+        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_track_extractopm_description__lineEdit_1) #7
+        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_system_description__lineEdit_1) #8
+        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_system_operation_status__lineEdit_1) #9
+        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_system_power_off_time__lineEdit_1) #10
+        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_track_recording_period__lineEdit_1) #11
+        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_track_deletion_trace__lineEdit_1) #12
+        tmp_list.append(self.AI_EquipmentTraces_user_trace_info_user_trace_notes__lineEdit_1) #13
         self.AI_EquipmentTraces_List.append(tmp_list)
 
         self.AI_Reports_file_info__browseButton_1.clicked.connect(
@@ -2204,16 +2299,16 @@ class Ui_SecondWindow(object):
         datetime.datetime.now()
         now = datetime.datetime.now()
 
-        tmp_list.append(self.Log_digital_evidence_package_management_id__lineEdit_1)
-        tmp_list.append(self.Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1)
-        tmp_list.append(now)
-        tmp_list.append(self.Log_Digital_Evidence_Pack_History_End_Date_Time__lineEdit_1)
-        tmp_list.append(self.Log_log_type__lineEdit_1)
-        tmp_list.append(self.Log_log_description__lineEdit_1)
-        tmp_list.append(self.Log_devision_name_of_logger__lineEdit_1)
-        tmp_list.append(self.Log_team_name_of_logger__lineEdit_1)
-        tmp_list.append(self.Log_rank_of_logger__lineEdit_1)
-        tmp_list.append(self.Log_name_of_logger__lineEdit_1)
+        tmp_list.append(self.Log_digital_evidence_package_management_id__lineEdit_1) #0
+        tmp_list.append(self.Log_Digital_Evidence_Pack_History_Start_Date_Time__lineEdit_1) #1
+        tmp_list.append(now)  #2
+        tmp_list.append(self.Log_Digital_Evidence_Pack_History_End_Date_Time__lineEdit_1) #3
+        tmp_list.append(self.Log_log_type__lineEdit_1) #4
+        tmp_list.append(self.Log_log_description__lineEdit_1) #5
+        tmp_list.append(self.Log_devision_name_of_logger__lineEdit_1) #6
+        tmp_list.append(self.Log_team_name_of_logger__lineEdit_1) #7
+        tmp_list.append(self.Log_rank_of_logger__lineEdit_1) #8
+        tmp_list.append(self.Log_name_of_logger__lineEdit_1) #9
 
         self.Log_List.append(tmp_list)
 
@@ -12174,7 +12269,7 @@ class Ui_SecondWindow(object):
         self.DE_Vessel_Info_vessel_length__label_1.setText(_translate("SecondWindow", "선박 길이:"))
         self.DE_Vessel_Info_vessel_total_number_of_equipmentwith_track__label_1.setText(_translate("SecondWindow", "항적 분석 장비 수:"))
         self.DE_Vessel_Type__label_1.setText(_translate("SecondWindow", "선박 유형: "))
-        self.DE_Marines_Electronics_Info_device_management_id__label_1.setText(_translate("SecondWindow", "장비 관리 번호:"))
+        self.DE_Marines_Electronics_Info_device_management_id__label_1.setText(_translate("SecondWindow", "장비 관리 고유 번호:"))
         self.DE_Marines_Electronics_Info_device_management_id__lineEdit_1.setPlaceholderText(_translate("SecondWindow", "ex) D20220203-V001-D001"))
         self.DE_Marines_Electronics_Info_device_type__label_1.setText(_translate("SecondWindow", "장비 유형:"))
         self.DE_Marines_Electronics_Info_device_manufacturer__label_1.setText(_translate("SecondWindow", "장비 제조사:"))
@@ -12245,7 +12340,7 @@ class Ui_SecondWindow(object):
         self.AI_Reports_type__lineEdit_1.setPlaceholderText(_translate("SecondWindow", "ex) REPORTS"))
         self.AI_Reports_subtype__label_1.setText(_translate("SecondWindow", "하위 유형:"))
         self.AI_Reports_subtype__lineEdit_1.setPlaceholderText(_translate("SecondWindow", "ex) SAIDAR"))
-        self.AI_Reports_mgmt_id__label_1.setText(_translate("SecondWindow", "장비 관리 번호:"))
+        self.AI_Reports_mgmt_id__label_1.setText(_translate("SecondWindow", "장비 관리 고유 번호:"))
         self.AI_Reports_mgmt_id__lineEdit_1.setPlaceholderText(_translate("SecondWindow", "ex) D20220203-V001-D001"))
         self.AI_Reports_submission_agency__label_1.setText(_translate("SecondWindow", "제출 기관:"))
         self.AI_Reports_reprot_creation_datetime__label_1.setText(_translate("SecondWindow", "보고서 작성 시간:"))
@@ -12334,4 +12429,4 @@ if __name__ == "__main__":
     SecondWindow.show()
     sys.exit(app.exec_())
 
-# 4_18
+# 4_19
